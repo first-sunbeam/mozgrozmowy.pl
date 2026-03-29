@@ -1,0 +1,23 @@
+---
+import ConversationList from "../components/ConversationList.astro";
+import { conversations } from "../data/conversations";
+import Layout from "../layouts/Layout.astro";
+import "../styles/content-pages.css";
+---
+
+<Layout
+	title="All conversations | autyzm.poznan.pl"
+	description="All conversations from the series."
+	lang="pl"
+	pathname="/conversations"
+>
+	<main class="page-shell">
+		<section class="page-intro page-intro--section">
+			<p class="page-kicker">Conversations</p>
+			<h1>All conversations</h1>
+			<p>A complete view of the conversation series, kept in one clean list.</p>
+		</section>
+
+		<ConversationList items={conversations} />
+	</main>
+</Layout>

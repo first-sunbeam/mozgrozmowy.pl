@@ -1,0 +1,48 @@
+---
+import type { ConversationItem } from "../data/conversations";
+
+interface Props {
+	items: ConversationItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="conversation-list">
+	{items.map((item) => (
+		<article class="conversation-card">
+			<h2>{item.title}</h2>
+			<p>{item.description}</p>
+		</article>
+	))}
+</div>
+
+<style>
+	.conversation-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.conversation-card {
+		padding: 1.5rem;
+		border: 1px solid var(--border-light);
+		border-radius: 20px;
+		background: var(--color-white);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.conversation-card h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.25rem;
+		line-height: 1.35;
+		color: var(--color-text-primary);
+	}
+
+	.conversation-card p {
+		margin: 0;
+		max-width: 62ch;
+		color: var(--color-text-secondary);
+		font-size: 1rem;
+		line-height: 1.65;
+	}
+</style>

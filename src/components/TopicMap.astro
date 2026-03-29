@@ -1,0 +1,54 @@
+---
+interface TopicGroup {
+	title: string;
+	items: string[];
+}
+
+interface Props {
+	groups: TopicGroup[];
+}
+
+const { groups } = Astro.props;
+---
+
+<div class="topic-map">
+	{groups.map((group) => (
+		<section class="topic-group">
+			<h2>{group.title}</h2>
+			<ul>
+				{group.items.map((item) => <li>{item}</li>)}
+			</ul>
+		</section>
+	))}
+</div>
+
+<style>
+	.topic-map {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.topic-group {
+		padding: 1.5rem;
+		border: 1px solid var(--border-light);
+		border-radius: 20px;
+		background: color-mix(in srgb, var(--bg-main) 82%, var(--color-bg-light) 18%);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.topic-group h2 {
+		margin: 0 0 0.9rem;
+		font-size: 1.15rem;
+		color: var(--color-text-primary);
+	}
+
+	.topic-group ul {
+		margin: 0;
+		padding-left: 1.1rem;
+		color: var(--color-text-secondary);
+	}
+
+	.topic-group li + li {
+		margin-top: 0.55rem;
+	}
+</style>

@@ -1,73 +1,30 @@
 ---
-import SeriesPage from "../components/SeriesPage.astro";
+import ConversationList from "../components/ConversationList.astro";
+import Layout from "../layouts/Layout.astro";
+import { conversations } from "../data/conversations";
+import "../styles/content-pages.css";
 ---
 
-<SeriesPage
-	language="pl"
-	title="Rozmowy z Mózgiem | autyzm.poznan.pl"
-	description="Polska wersja strony z serią tekstów Rozmowy z Mózgiem."
-	headerAriaLabel="Główne menu"
-	homeAriaLabel="Strona główna - Rozmowy z Mózgiem"
-	navSeries="Rozmowy"
-	navToc="Mapa tematów"
-	navAbout="O mnie"
-	switchLabel="EN"
-	switchHref="/en/"
-	switchLang="en"
-	eyebrow="Rozmowy z Mózgiem"
-	heading="Seria rozmów, w których doświadczenie spotyka analizę"
-	intro="To przestrzeń dla tekstów „JA ↔ MÓZG” — rozmów o terapii, systemach wsparcia, przeciążeniu, samouszkodzeniach i codziennym funkcjonowaniu osób neuroróżnorodnych. Łączę to, co opisane w wiedzy, z tym, jak to działa w praktyce."
-	seriesLabel="Seria"
-	seriesHeading="Rozmowy"
-	seriesBody="Zbiór rozmów z tej serii. Każdy tytuł prowadzi do pełnego tekstu."
-	entries={[
-		{
-			title: '🧠 Rozmowa z Mózgiem: "Jeśli tak wygląda dorosłość, to jak ma wyglądać terapia?"',
-			description:
-				'Integracja dwóch wystąpień z Konferencji PDA w Perth i próba sprawdzenia, czy opis doświadczenia dorosłych jest spójny z proponowanym sposobem prowadzenia terapii.',
-			meta: "PDA, dorosłość, terapia",
-			tags: ["PDA", "terapia", "dorośli"]
-		},
-		{
-			title: 'Obiektywny system, który dziwnie często wie, ile masz "dostać". Rozmowa z 🧠 Mózgiem: #ŚwiadczenieWspierające',
-			description:
-				'Tekst o zderzeniu języka systemowego z realnym doświadczeniem osoby, której potrzeby próbuje się przeliczyć na punkty, progi i decyzje.',
-			meta: "system, wsparcie, świadczenia",
-			tags: ["ŚwiadczenieWspierające", "system", "orzecznictwo"]
-		},
-		{
-			title: "📖 Trylogia o #SIB",
-			description:
-				'Cykl oparty między innymi na artykule „Child and Family Characteristics as Predictors of the Severity of Self-injurious Behaviours in Autistic Children and Adolescents”, Journal of Autism and Developmental Disorders, 2026.',
-			meta: "badania, SIB, autyzm",
-			tags: ["SIB", "autyzm", "badania"]
-		},
-		{
-			title: "Rozmowa „JA ↔ MÓZG”: ND-terapia w trybie analityczno-strukturalnym",
-			description:
-				'Próba opisania terapii, która nie romantyzuje chaosu, ale też nie narzuca struktury ignorującej granice układu nerwowego.',
-			meta: "ND-terapia, struktura, analiza",
-			tags: ["ND-terapia", "analiza", "struktura"]
-		},
-		{
-			title: "💡 Wiedza nie daje ulgi. Po prostu wiesz dokładniej, kiedy zaczyna się przeciążenie.",
-			description:
-				'Tekst o tym, że rozumienie mechanizmu nie zawsze przynosi ukojenie, ale może dawać bardziej precyzyjny język do opisu granic i kosztów.',
-			meta: "przeciążenie, świadomość, koszty",
-			tags: ["przeciążenie", "wiedza", "samoregulacja"]
-		}
-	]}
-	summaryLabel="Podsumowanie"
-	summaryHeading="O czym jest ta seria"
-	summaryBody="To seria rozmów i analiz, w których łączę język badań, terapii i systemów wsparcia z realnym doświadczeniem przeciążenia, regulacji i codziennego funkcjonowania. Pokazuję, jak to, co opisane w teoriach, działa w praktyce — w ciele, w myśleniu i w relacjach."
-	tocLabel="Na stronie"
-	tocHeading="Spis treści"
-	tocItems={[
-		{ label: "Seria", href: "#seria" },
-		{ label: "Lista rozmów", href: "#spis-tresci" },
-		{ label: "O mnie", href: "#o-mnie" }
-	]}
-	aboutLabel="O mnie"
-	aboutHeading="Kim jestem"
-	aboutBody="Pracuję na styku analizy i doświadczenia. Przekładam złożone rzeczy — przeciążenie, regulację, funkcjonowanie — na język, który da się zrozumieć i wykorzystać."
-/>
+<Layout
+	title="Latest conversations | autyzm.poznan.pl"
+	description="Latest conversations from the Rozmowy z Mózgiem series."
+	lang="pl"
+	pathname="/"
+>
+	<main class="page-shell">
+		<section class="page-intro page-intro--soft">
+			<p class="page-kicker">Latest conversations</p>
+			<h1>
+				Calm, readable conversations about therapy, overload, and systems of
+				support.
+			</h1>
+			<p>
+				This homepage shows the latest entries from the series. The structure
+				stays simple: clear titles, short descriptions, and space for the
+				writing itself.
+			</p>
+		</section>
+
+		<ConversationList items={conversations.slice(0, 3)} />
+	</main>
+</Layout>

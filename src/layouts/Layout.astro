@@ -1,18 +1,56 @@
 ---
 import "../styles/theme.css";
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import logo from "../assets/noBgColor-logo.svg";
 
 interface Props {
 	title?: string;
 	description?: string;
 	lang?: string;
+	pathname?: string;
 }
+
+const toLocalizedPath = (basePath: string, currentLang: string) =>
+	currentLang === "pl"
+		? basePath
+		: basePath === "/"
+			? "/en/"
+			: `/en${basePath}`;
+
+const toAlternateLanguagePath = (currentPath: string, currentLang: string) => {
+	if (currentLang === "pl") {
+		return currentPath === "/" ? "/en/" : `/en${currentPath}`;
+	}
+
+	return currentPath === "/en/" ? "/" : currentPath.replace(/^\/en/, "") || "/";
+};
 
 const {
 	title = "autyzm.poznan.pl",
 	description = "Site content coming soon.",
-	lang = "pl"
+	lang = "pl",
+	pathname = "/",
 } = Astro.props;
+
+const labels =
+	lang === "pl"
+		? {
+				navConversations: "Rozmowy",
+				navTopicMap: "Mapa tematow",
+				navAbout: "Kontekst",
+				homeAriaLabel: "Strona glowna",
+				switchLabel: "EN",
+			}
+		: {
+				navConversations: "Conversations",
+				navTopicMap: "Topic map",
+				navAbout: "Context",
+				homeAriaLabel: "Home page",
+				switchLabel: "PL",
+			};
+
+const switchHref = toAlternateLanguagePath(pathname, lang);
 ---
 
 <!doctype html>
@@ -32,6 +70,57 @@ const {
 		<title>{title}</title>
 	</head>
 	<body>
+		<header class="site-header">
+			<div class="site-header__inner">
+				<a
+					class="site-brand"
+					href={toLocalizedPath("/", lang)}
+					aria-label={labels.homeAriaLabel}
+				>
+					<Image src={logo} alt="Mózg Rozmowy" width={180} loading="eager" />
+				</a>
+
+				<nav class="site-nav" aria-label="Główna nawigacja">
+					<a
+						class:list={{
+							active:
+								pathname === "/conversations" ||
+								pathname === "/en/conversations",
+						}}
+						href={toLocalizedPath("/conversations", lang)}
+					>
+						{labels.navConversations}
+					</a>
+					<a
+						class:list={{
+							active: pathname === "/topic-map" || pathname === "/en/topic-map",
+						}}
+						href={toLocalizedPath("/topic-map", lang)}
+					>
+						{labels.navTopicMap}
+					</a>
+					<a
+						class:list={{
+							active: pathname === "/about" || pathname === "/en/about",
+						}}
+						href={toLocalizedPath("/about", lang)}
+					>
+						{labels.navAbout}
+					</a>
+				</nav>
+
+				<a
+					class="site-lang-switch"
+					href={switchHref}
+					hreflang={lang === "pl" ? "en" : "pl"}
+				>
+					{labels.switchLabel}
+				</a>
+			</div>
+		</header>
 		<slot />
+		<footer class="site-footer">
+			Małgorzata Mikołajczyk · Psycholog · analityk zachowania (BCBA)
+		</footer>
 	</body>
 </html>

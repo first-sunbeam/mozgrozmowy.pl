@@ -1,0 +1,26 @@
+---
+import TopicMap from "../components/TopicMap.astro";
+import { topicMap } from "../data/conversations";
+import Layout from "../layouts/Layout.astro";
+import "../styles/content-pages.css";
+---
+
+<Layout
+	title="Topic map | autyzm.poznan.pl"
+	description="Thematic map of the site's content."
+	lang="pl"
+	pathname="/topic-map"
+>
+	<main class="page-shell">
+		<section class="page-intro page-intro--alt">
+			<p class="page-kicker">Topic map</p>
+			<h1>Thematic map of the content</h1>
+			<p>
+				A grouped view of the ideas running through the site, organized by theme
+				instead of chronology.
+			</p>
+		</section>
+
+		<TopicMap groups={topicMap} />
+	</main>
+</Layout>

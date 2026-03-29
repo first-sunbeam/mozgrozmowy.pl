@@ -1,0 +1,74 @@
+.page-shell {
+	width: min(860px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding: 3rem 0 5rem;
+}
+
+.page-intro {
+	margin-bottom: 1.5rem;
+	padding: 1.75rem;
+	border: 1px solid var(--border-light);
+	border-radius: 24px;
+}
+
+.page-intro--soft {
+	background: color-mix(in srgb, var(--bg-main) 78%, var(--color-bg-light) 22%);
+}
+
+.page-intro--section {
+	background: var(--bg-section);
+}
+
+.page-intro--alt {
+	background: color-mix(in srgb, var(--bg-main) 80%, var(--color-bg-light) 20%);
+}
+
+.page-kicker {
+	margin: 0 0 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.78rem;
+	color: var(--color-primary);
+}
+
+.page-intro h1 {
+	margin: 0 0 0.9rem;
+	font-size: clamp(2rem, 5vw, 3rem);
+	line-height: 1.08;
+}
+
+.page-intro--soft h1 {
+	font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.page-intro,
+.about-card {
+	max-width: 70ch;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.about-card {
+	padding: 1.75rem;
+	border: 1px solid var(--border-light);
+	border-radius: 24px;
+	background: var(--color-white);
+	box-shadow: var(--shadow-soft);
+	width: auto;
+}
+.page-intro p:last-child,
+.about-card p {
+	margin: 0;
+	color: var(--color-text-secondary);
+	line-height: 1.7;
+}
+
+.about-card p + p {
+	margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+	.about-card {
+		display: block;
+	}
+}
