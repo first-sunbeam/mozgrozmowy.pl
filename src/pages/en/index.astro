@@ -1,0 +1,77 @@
+---
+import SeriesPage from "../../components/SeriesPage.astro";
+---
+
+<SeriesPage
+	language="en"
+	title="Conversations with the Brain | autyzm.poznan.pl"
+	description="English version of the series page for Conversation with the Brain."
+	headerAriaLabel="Main menu"
+	homeAriaLabel="autyzm.poznan.pl home page"
+	navSeries="Conversations"
+	navToc="Topic map"
+	navAbout="About me"
+	switchLabel="PL"
+	switchHref="/"
+	switchLang="pl"
+	eyebrow="Conversations with the Brain"
+	heading="A series of conversations where experience meets analysis"
+	intro="This is a space for texts in the “ME ↔ BRAIN” format — conversations about therapy, support systems, overload, self-harm, and everyday functioning of neurodivergent people. I connect structured knowledge with how things actually work in practice."
+	seriesLabel="Series"
+	seriesHeading="Conversations in this series"
+	seriesBody="A list of conversations in this series. Each title leads to a separate page with the full text."
+	entries={[
+		{
+			title:
+				'🧠 Conversation with the Brain: "If this is what adulthood looks like, what should therapy look like?"',
+			description:
+				"An integration of two talks from the PDA Conference in Perth and an attempt to see whether the description of adult experience is coherent with the proposed therapeutic approach.",
+			meta: "PDA, adulthood, therapy",
+			tags: ["PDA", "therapy", "adults"],
+		},
+		{
+			title:
+				'An objective system that strangely often knows how much support you are supposed to "deserve". Conversation with 🧠 Brain: #SupportBenefit',
+			description:
+				"A text about the collision between bureaucratic language and the lived experience of a person whose needs are translated into points, thresholds, and administrative decisions.",
+			meta: "system, support, benefits",
+			tags: ["support benefit", "system", "assessment"],
+		},
+		{
+			title: "📖 Trilogy on #SIB",
+			description:
+				"A series based in part on the paper “Child and Family Characteristics as Predictors of the Severity of Self-injurious Behaviours in Autistic Children and Adolescents”, Journal of Autism and Developmental Disorders, 2026.",
+			meta: "research, SIB, autism",
+			tags: ["SIB", "autism", "research"],
+		},
+		{
+			title:
+				"Conversation “ME ↔ BRAIN”: ND therapy in an analytical-structural mode",
+			description:
+				"An attempt to describe therapy that does not romanticize chaos but also does not impose structure that ignores nervous-system limits.",
+			meta: "ND therapy, structure, analysis",
+			tags: ["ND therapy", "analysis", "structure"],
+		},
+		{
+			title:
+				"💡 Knowledge does not bring relief. It only lets you know more precisely when overload begins.",
+			description:
+				"A text about how understanding the mechanism does not always soothe, but it can offer more precise language for limits, cost, and self-regulation.",
+			meta: "overload, awareness, cost",
+			tags: ["overload", "knowledge", "self-regulation"],
+		},
+	]}
+	summaryLabel="Summary"
+	summaryHeading="What this series is about"
+	summaryBody="This is a series of conversations and analyses where I connect the language of research, therapy, and support systems with the lived experience of overload, regulation, and everyday functioning. I show how what is described in theory actually works in practice — in the body, in thinking, and in relationships."
+	tocLabel="On this page"
+	tocHeading="Contents"
+	tocItems={[
+		{ label: "Series", href: "#seria" },
+		{ label: "Conversation list", href: "#spis-tresci" },
+		{ label: "About me", href: "#o-mnie" },
+	]}
+	aboutLabel="About"
+	aboutHeading="Who I am"
+	aboutBody="I work at the intersection of analysis and lived experience, focusing on neurodivergence. I translate complex processes like overload, regulation, and everyday functioning into something that can be understood and used in practice."
+/>

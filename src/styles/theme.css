@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+
+  /* 🎯 AKCENT (złoty z logo – przygaszony, nie "premium krzyk") */
+  --color-primary: #a1844e;
+  --color-primary-hover: #8c6f3e;
+  --color-secondary: #c2b59b;
+  --color-primary-rgb: 118 100 174;
+
+  /* 🧱 TŁA (bezpieczna pustka) */
+  --color-bg-light: #f7f6f3;
+  --color-bg-accent: #efece6;
+  --color-white: #ffffff;
+  --color-white-rgb: 255 255 255;
+
+  /* 🔤 TEKST */
+  --color-text-primary: #1f1f23;
+  --color-text-secondary: #5a5a63;
+  --color-text-on-primary: #ffffff;
+
+  /* 📦 SYSTEM */
+  --bg-main: var(--color-white);
+  --bg-section: var(--color-bg-light);
+  --bg-section-alt: var(--color-bg-accent);
+
+  /* 🔘 BUTTONY */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-hover: var(--color-primary-hover);
+  --btn-primary-text: var(--color-text-on-primary);
+
+  /* 🔗 LINKI */
+  --link-color: var(--color-primary);
+  --link-hover: var(--color-primary-hover);
+
+  /* 📏 BORDER / UI */
+  --border-light: #e6e2d9;
+  --border-subtle: rgba(161, 132, 78, 0.2);
+
+  /* 🌫️ SHADOW / FOCUS */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --focus-ring: 0 0 0 3px rgba(161, 132, 78, 0.25);
+}
