@@ -1,6 +1,6 @@
 ---
 import TopicMap from "../../components/TopicMap.astro";
-import { topicMapEn } from "../../data/conversations";
+import { topicMap } from "../../data/topics";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/content-pages.css";
 ---
@@ -21,6 +21,6 @@ import "../../styles/content-pages.css";
 			</p>
 		</section>
 
-		<TopicMap groups={topicMapEn} />
+		<TopicMap groups={topicMap.en} />
 	</main>
 </Layout>

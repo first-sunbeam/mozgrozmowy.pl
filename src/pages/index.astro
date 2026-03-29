@@ -1,8 +1,17 @@
 ---
+import { getCollection } from "astro:content";
 import ConversationList from "../components/ConversationList.astro";
 import Layout from "../layouts/Layout.astro";
-import { conversations } from "../data/conversations";
 import "../styles/content-pages.css";
+
+const conversations = (await getCollection("conversations", ({ data }) => data.lang === "pl" && data.published))
+	.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
+	.slice(0, 3)
+	.map((entry) => ({
+		title: entry.data.title,
+		description: entry.data.description,
+		href: `/conversations/${entry.data.slug}`
+	}));
 ---
 
 <Layout
@@ -25,6 +34,6 @@ import "../styles/content-pages.css";
 			</p>
 		</section>
 
-		<ConversationList items={conversations.slice(0, 3)} />
+		<ConversationList items={conversations} />
 	</main>
 </Layout>

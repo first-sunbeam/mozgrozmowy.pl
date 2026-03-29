@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/content-pages.css";
+
+export async function getStaticPaths() {
+	const conversations = await getCollection("conversations", ({ data }) => data.lang === "pl" && data.published);
+
+	return conversations.map((entry) => ({
+		params: { slug: entry.data.slug },
+		props: { entry }
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout
+	title={`${entry.data.title} | mozgrozmowy.pl`}
+	description={entry.data.description}
+	lang="pl"
+	pathname="/conversations"
+>
+	<main class="page-shell">
+		<article class="article-shell">
+			<p class="page-kicker">Rozmowa</p>
+			<h1>{entry.data.title}</h1>
+			<p class="article-description">{entry.data.description}</p>
+			<div class="article-content">
+				<Content />
+			</div>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.article-shell {
+		padding: 1.75rem;
+		border: 1px solid var(--border-light);
+		border-radius: 24px;
+		background: var(--color-white);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.article-shell h1 {
+		margin: 0 0 1rem;
+		font-size: clamp(2rem, 5vw, 3rem);
+		line-height: 1.08;
+	}
+
+	.article-description {
+		margin: 0 0 1.5rem;
+		max-width: 62ch;
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+	}
+
+	.article-content {
+		display: grid;
+		gap: 0.85rem;
+	}
+</style>

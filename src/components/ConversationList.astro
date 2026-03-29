@@ -1,8 +1,12 @@
 ---
-import type { ConversationItem } from "../data/conversations";
+interface ConversationListItem {
+	title: string;
+	description: string;
+	href: string;
+}
 
 interface Props {
-	items: ConversationItem[];
+	items: ConversationListItem[];
 }
 
 const { items } = Astro.props;
@@ -11,7 +15,9 @@ const { items } = Astro.props;
 <div class="conversation-list">
 	{items.map((item) => (
 		<article class="conversation-card">
-			<h2>{item.title}</h2>
+			<h2>
+				<a href={item.href}>{item.title}</a>
+			</h2>
 			<p>{item.description}</p>
 		</article>
 	))}
@@ -36,6 +42,15 @@ const { items } = Astro.props;
 		font-size: 1.25rem;
 		line-height: 1.35;
 		color: var(--color-text-primary);
+	}
+
+	.conversation-card h2 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.conversation-card h2 a:hover {
+		color: var(--color-primary-hover);
 	}
 
 	.conversation-card p {
