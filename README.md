@@ -1,46 +1,69 @@
-# Astro Starter Kit: Basics
+# Fumbling Field
 
-```sh
-npm create astro@latest -- --template basics
-```
+A bilingual (Polish/English) platform for exploring neurodivergent experiences, therapy, support systems, and lived experience through conversations and topic-based discussions.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎯 About
+
+This site contains thoughtful conversations about:
+
+- **Therapy and Relationship** — What therapy should look like when demand itself triggers a block
+- **Systems and Benefits** — How support systems describe the need for support
+- **Overload and Regulation** — Understanding nervous system boundaries and capacity
+- **Research and Interpretation** — Translating research findings into lived experience
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── public/               # Static assets
+├── src/
+│   ├── components/       # Reusable Astro components
+│   │   ├── ConversationList.astro
+│   │   ├── DialogLine.astro
+│   │   └── TopicMap.astro
+│   ├── content/          # MDX conversations (bilingual)
+│   │   └── conversations/
+│   │       ├── en/
+│   │       └── pl/
+│   ├── data/             # Topic and language data
+│   │   ├── topics.ts
+│   │   ├── en/
+│   │   └── pl/
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Page routes (bilingual)
+│   │   ├── conversations.astro
+│   │   ├── topic-map.astro
+│   │   ├── about.astro
+│   │   └── en/           # English language routes
+│   └── styles/           # Global and component styles
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+| Command           | Action                               |
+| :---------------- | :----------------------------------- |
+| `npm install`     | Install dependencies                 |
+| `npm run dev`     | Start dev server at `localhost:3000` |
+| `npm run build`   | Build for production to `./dist/`    |
+| `npm run preview` | Preview production build locally     |
+| `npm run astro`   | Run Astro CLI commands               |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📝 Adding Conversations
 
-## 👀 Want to learn more?
+Conversations are MDX files organized by language in `src/content/conversations/`. Each conversation includes:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Dialogue between perspectives (using `DialogLine` component)
+- Topic classifications
+- Publication status and featured flag
+- Language specification
+
+## 🌐 Languages
+
+The site supports both Polish (pl) and English (en) with separate content and routing.
+
+## 📚 Technologies
+
+- **Astro** — Static site generation
+- **MDX** — Markdown with JSX components
+- **TypeScript** — Type-safe configuration
