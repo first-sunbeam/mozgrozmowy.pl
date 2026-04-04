@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { speaker, text } = Astro.props;
-const isBrain = speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "brain";
+const isBrain =
+	speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "brain";
 ---
 
 <div class:list={["dialog-line", { "dialog-line--brain": isBrain }]}>
@@ -22,7 +23,11 @@ const isBrain = speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "b
 	}
 
 	.dialog-line--brain {
-		background: color-mix(in srgb, var(--bg-main) 78%, var(--color-bg-light) 22%);
+		background: color-mix(
+			in srgb,
+			var(--bg-main) 78%,
+			var(--color-bg-light) 22%
+		);
 	}
 
 	.dialog-line__speaker,

@@ -2,6 +2,7 @@
 	width: min(860px, calc(100% - 2rem));
 	margin: 0 auto;
 	padding: 3rem 0 5rem;
+	max-width: 70ch;
 }
 
 .page-intro {
@@ -43,7 +44,6 @@
 
 .page-intro,
 .about-card {
-	max-width: 70ch;
 	margin-left: auto;
 	margin-right: auto;
 }
