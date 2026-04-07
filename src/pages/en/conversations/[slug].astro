@@ -20,7 +20,7 @@ const { Content } = await render(entry);
 	title={`${entry.data.title} | mozgrozmowy.pl`}
 	description={entry.data.description}
 	lang="en"
-	pathname="/en/conversations"
+	pathname={`/en/conversations/${entry.data.slug}`}
 >
 	<main class="page-shell">
 		<article class="article-shell">

@@ -1,69 +1,68 @@
 # Fumbling Field
 
-A bilingual (Polish/English) platform for exploring neurodivergent experiences, therapy, support systems, and lived experience through conversations and topic-based discussions.
+A bilingual Astro site in Polish and English for publishing conversations about therapy, overload, support systems, and lived experience.
 
-## 🎯 About
-
-This site contains thoughtful conversations about:
-
-- **Therapy and Relationship** — What therapy should look like when demand itself triggers a block
-- **Systems and Benefits** — How support systems describe the need for support
-- **Overload and Regulation** — Understanding nervous system boundaries and capacity
-- **Research and Interpretation** — Translating research findings into lived experience
-
-## 🚀 Project Structure
+## Project structure
 
 ```text
 /
-├── public/               # Static assets
+├── public/                     # Static assets
 ├── src/
-│   ├── components/       # Reusable Astro components
+│   ├── assets/                 # Images and logo assets
+│   ├── components/             # Reusable Astro components
 │   │   ├── ConversationList.astro
 │   │   ├── DialogLine.astro
 │   │   └── TopicMap.astro
-│   ├── content/          # MDX conversations (bilingual)
+│   ├── content/                # MDX conversations
 │   │   └── conversations/
 │   │       ├── en/
 │   │       └── pl/
-│   ├── data/             # Topic and language data
-│   │   ├── topics.ts
-│   │   ├── en/
-│   │   └── pl/
-│   ├── layouts/          # Page layouts
-│   ├── pages/            # Page routes (bilingual)
+│   ├── data/                   # Static data used by pages
+│   │   └── topics.ts
+│   ├── layouts/                # Shared page layouts
+│   │   └── Layout.astro
+│   ├── pages/                  # Route files
+│   │   ├── about.astro
 │   │   ├── conversations.astro
 │   │   ├── topic-map.astro
-│   │   ├── about.astro
-│   │   └── en/           # English language routes
-│   └── styles/           # Global and component styles
-└── package.json
+│   │   ├── index.astro
+│   │   └── en/
+│   ├── styles/                 # Global page styles
+│   ├── content.config.ts       # Astro content collections
+│   └── ...
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
-## 🧞 Commands
+## Commands
 
 | Command           | Action                               |
 | :---------------- | :----------------------------------- |
 | `npm install`     | Install dependencies                 |
-| `npm run dev`     | Start dev server at `localhost:3000` |
-| `npm run build`   | Build for production to `./dist/`    |
-| `npm run preview` | Preview production build locally     |
+| `npm run dev`     | Start dev server at `localhost:4321` |
+| `npm run build`   | Build the static site to `./dist/`   |
+| `npm run preview` | Preview the production build         |
 | `npm run astro`   | Run Astro CLI commands               |
 
-## 📝 Adding Conversations
+## Content
 
-Conversations are MDX files organized by language in `src/content/conversations/`. Each conversation includes:
+Conversation entries live in `src/content/conversations/{pl,en}` as MDX files.
+Each entry includes frontmatter for:
 
-- Dialogue between perspectives (using `DialogLine` component)
-- Topic classifications
-- Publication status and featured flag
-- Language specification
+- `slug`
+- `title`
+- `description`
+- `topics`
+- `published`
+- `featured` (optional)
+- `order` (optional)
+- `lang`
 
-## 🌐 Languages
+The MDX content can use the shared `DialogLine.astro` component.
 
-The site supports both Polish (pl) and English (en) with separate content and routing.
+## Tech
 
-## 📚 Technologies
-
-- **Astro** — Static site generation
-- **MDX** — Markdown with JSX components
-- **TypeScript** — Type-safe configuration
+- Astro
+- MDX
+- TypeScript

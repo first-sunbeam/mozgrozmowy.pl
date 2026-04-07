@@ -14,16 +14,16 @@ const conversations = (await getCollection("conversations", ({ data }) => data.l
 ---
 
 <Layout
-	title="All conversations | mozgrozmowy.pl"
-	description="All conversations from the series."
+	title="Wszystkie rozmowy | mozgrozmowy.pl"
+	description="Wszystkie rozmowy z serii."
 	lang="pl"
 	pathname="/conversations"
 >
 	<main class="page-shell">
 		<section class="page-intro page-intro--section">
-			<p class="page-kicker">Conversations</p>
-			<h1>All conversations</h1>
-			<p>A complete view of the conversation series, kept in one clean list.</p>
+			<p class="page-kicker">Rozmowy</p>
+			<h1>Wszystkie rozmowy</h1>
+			<p>Pełny widok serii rozmów zebrany w jednej, czytelnej liście.</p>
 		</section>
 
 		<ConversationList items={conversations} />

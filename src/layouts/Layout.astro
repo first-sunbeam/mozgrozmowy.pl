@@ -40,6 +40,7 @@ const labels =
 				navTopicMap: "Mapa tematow",
 				navAbout: "Kontekst",
 				homeAriaLabel: "Strona glowna",
+				mainNavAriaLabel: "Główna nawigacja",
 				switchLabel: "EN",
 			}
 		: {
@@ -47,6 +48,7 @@ const labels =
 				navTopicMap: "Topic map",
 				navAbout: "Context",
 				homeAriaLabel: "Home page",
+				mainNavAriaLabel: "Main navigation",
 				switchLabel: "PL",
 			};
 
@@ -80,12 +82,14 @@ const switchHref = toAlternateLanguagePath(pathname, lang);
 					<Image src={logo} alt="Mózg Rozmowy" width={180} loading="eager" />
 				</a>
 
-				<nav class="site-nav" aria-label="Główna nawigacja">
+				<nav class="site-nav" aria-label={labels.mainNavAriaLabel}>
 					<a
 						class:list={{
 							active:
 								pathname === "/conversations" ||
-								pathname === "/en/conversations",
+								pathname.startsWith("/conversations/") ||
+								pathname === "/en/conversations" ||
+								pathname.startsWith("/en/conversations/"),
 						}}
 						href={toLocalizedPath("/conversations", lang)}
 					>
