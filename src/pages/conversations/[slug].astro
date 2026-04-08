@@ -2,21 +2,13 @@
 import { render } from "astro:content";
 import ConversationArticlePage from "../../components/pages/ConversationArticlePage.astro";
 import { ui } from "../../i18n/ui";
-import {
-	getConversationPath,
-	getPublishedConversations,
-} from "../../lib/content";
+import { getConversationPath, getConversationStaticPaths } from "../../lib/content";
 
 export async function getStaticPaths() {
-	const conversations = await getPublishedConversations("pl");
-
-	return conversations.map((entry) => ({
-		params: { slug: entry.data.slug },
-		props: { entry },
-	}));
+	return getConversationStaticPaths("pl");
 }
 
-const { entry } = Astro.props;
+const { entry, alternatePath } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -24,6 +16,7 @@ const { Content } = await render(entry);
 	entry={entry}
 	lang="pl"
 	pathname={getConversationPath("pl", entry.data.slug)}
+	alternatePath={alternatePath}
 	kicker={ui.pl.article.kicker}
 	Content={Content}
 />

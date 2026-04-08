@@ -18,6 +18,34 @@ export async function getPublishedConversations(lang: Lang) {
 	)).sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 }
 
+export async function getConversationStaticPaths(lang: Lang) {
+	const allConversations = await getCollection(
+		"conversations",
+		({ data }) => data.published,
+	);
+	const conversations = allConversations
+		.filter((entry) => entry.data.lang === lang)
+		.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+
+	return conversations.map((entry) => {
+		const alternateEntry = allConversations.find(
+			(candidate) =>
+				candidate.data.translationKey === entry.data.translationKey &&
+				candidate.data.lang !== entry.data.lang,
+		);
+
+		return {
+			params: { slug: entry.data.slug },
+			props: {
+				entry,
+				alternatePath: alternateEntry
+					? getConversationPath(alternateEntry.data.lang, alternateEntry.data.slug)
+					: undefined,
+			},
+		};
+	});
+}
+
 export function toConversationListItems(
 	entries: CollectionEntry<"conversations">[],
 	lang: Lang,

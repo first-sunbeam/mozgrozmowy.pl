@@ -8,11 +8,12 @@ interface Props {
 	entry: CollectionEntry<"conversations">;
 	lang: Lang;
 	pathname: string;
+	alternatePath?: string;
 	kicker: string;
 	Content: any;
 }
 
-const { entry, lang, pathname, kicker, Content } = Astro.props;
+const { entry, lang, pathname, alternatePath, kicker, Content } = Astro.props;
 ---
 
 <Layout
@@ -20,6 +21,7 @@ const { entry, lang, pathname, kicker, Content } = Astro.props;
 	description={entry.data.description}
 	lang={lang}
 	pathname={pathname}
+	alternatePath={alternatePath}
 >
 	<main class="page-shell">
 		<article class="article-shell">

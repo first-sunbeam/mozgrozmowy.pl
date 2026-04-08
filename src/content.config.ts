@@ -15,7 +15,8 @@ const conversations = defineCollection({
 		published: z.boolean(),
 		featured: z.boolean().optional(),
 		order: z.number().optional(),
-		lang: z.enum(["pl", "en"])
+		lang: z.enum(["pl", "en"]),
+		translationKey: z.string()
 	})
 });
 

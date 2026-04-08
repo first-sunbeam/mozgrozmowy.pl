@@ -4,19 +4,14 @@ import ConversationArticlePage from "../../../components/pages/ConversationArtic
 import { ui } from "../../../i18n/ui";
 import {
 	getConversationPath,
-	getPublishedConversations,
+	getConversationStaticPaths,
 } from "../../../lib/content";
 
 export async function getStaticPaths() {
-	const conversations = await getPublishedConversations("en");
-
-	return conversations.map((entry) => ({
-		params: { slug: entry.data.slug },
-		props: { entry },
-	}));
+	return getConversationStaticPaths("en");
 }
 
-const { entry } = Astro.props;
+const { entry, alternatePath } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -24,6 +19,7 @@ const { Content } = await render(entry);
 	entry={entry}
 	lang="en"
 	pathname={getConversationPath("en", entry.data.slug)}
+	alternatePath={alternatePath}
 	kicker={ui.en.article.kicker}
 	Content={Content}
 />

@@ -9,6 +9,7 @@ interface Props {
 	description?: string;
 	lang?: string;
 	pathname?: string;
+	alternatePath?: string;
 }
 
 const toLocalizedPath = (basePath: string, currentLang: string) =>
@@ -31,6 +32,7 @@ const {
 	description = "Site content coming soon.",
 	lang = "pl",
 	pathname = "/",
+	alternatePath,
 } = Astro.props;
 
 const labels =
@@ -52,7 +54,7 @@ const labels =
 				switchLabel: "PL",
 			};
 
-const switchHref = toAlternateLanguagePath(pathname, lang);
+const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
 ---
 
 <!doctype html>
