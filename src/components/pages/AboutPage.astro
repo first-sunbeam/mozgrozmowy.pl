@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/content-pages.css";
+import { contactEmail } from "../../data/site";
 import type { Lang } from "../../i18n/ui";
 
 interface Props {
@@ -28,6 +29,8 @@ const {
 	contactLead,
 	contactLinkLabel,
 } = Astro.props;
+
+const contactHref = `mailto:${contactEmail}`;
 ---
 
 <Layout title={title} description={description} lang={lang} pathname={pathname}>
@@ -42,18 +45,8 @@ const {
 			{paragraphs.map((paragraph) => <p>{paragraph}</p>)}
 			<p>
 				{contactLead}
-				<span id="contact-link"></span>.
+				<a href={contactHref}>{contactLinkLabel}</a>.
 			</p>
 		</section>
-
-		<script is:inline define:vars={{ contactLinkLabel }}>
-			const user = "kontakt";
-			const domain = "mozgrozmowy.pl";
-			const el = document.getElementById("contact-link");
-
-			if (el) {
-				el.innerHTML = `<a href="mailto:${user}@${domain}">${contactLinkLabel}</a>`;
-			}
-		</script>
 	</main>
 </Layout>

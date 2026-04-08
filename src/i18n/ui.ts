@@ -46,6 +46,8 @@ export const ui = {
 		},
 		article: {
 			kicker: "Rozmowa",
+			publishedLabel: "Opublikowano",
+			updatedLabel: "Aktualizacja",
 		},
 	},
 	en: {
@@ -93,6 +95,8 @@ export const ui = {
 		},
 		article: {
 			kicker: "Conversation",
+			publishedLabel: "Published",
+			updatedLabel: "Updated",
 		},
 	},
 } as const;

@@ -18,6 +18,7 @@ A bilingual Astro site in Polish and English for publishing conversations about 
 │   │       ├── en/
 │   │       └── pl/
 │   ├── data/                   # Static data used by pages
+│   │   ├── site.ts
 │   │   └── topics.ts
 │   ├── layouts/                # Shared page layouts
 │   │   └── Layout.astro
@@ -56,8 +57,10 @@ Each entry includes frontmatter for:
 - `topics`
 - `published`
 - `featured` (optional)
-- `order` (optional)
+- `publishedAt`
+- `updatedAt` (optional)
 - `lang`
+- `translationKey`
 
 The MDX content can use the shared `DialogLine.astro` component.
 

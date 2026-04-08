@@ -3,6 +3,7 @@ import "../styles/theme.css";
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import logo from "../assets/noBgColor-logo.svg";
+import { siteConfig } from "../data/site";
 
 interface Props {
 	title?: string;
@@ -29,8 +30,8 @@ const toAlternateLanguagePath = (currentPath: string, currentLang: string) => {
 };
 
 const {
-	title = "mozgrozmowy.pl",
-	description = "Site content coming soon.",
+	title = siteConfig.defaultTitle,
+	description = siteConfig.defaultDescription,
 	lang = "pl",
 	pathname = "/",
 	alternatePath,
@@ -64,22 +65,22 @@ const plAlternateUrl = Astro.site ? new URL(plPath, Astro.site).href : undefined
 const enAlternateUrl = Astro.site ? new URL(enPath, Astro.site).href : undefined;
 const xDefaultUrl = plAlternateUrl;
 const ogImageUrl = Astro.site
-	? new URL("/web-app-manifest-512x512.png", Astro.site).href
+	? new URL(siteConfig.defaultOgImagePath, Astro.site).href
 	: undefined;
 const ogLocale = lang === "pl" ? "pl_PL" : "en_US";
 const ogAlternateLocale = lang === "pl" ? "en_US" : "pl_PL";
 const websiteStructuredData = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
-	name: "Rozmowy z Mózgiem",
+	name: siteConfig.siteName,
 	url: Astro.site?.href,
 	inLanguage: lang,
 };
 const personStructuredData = {
 	"@context": "https://schema.org",
 	"@type": "Person",
-	name: "Małgorzata Mikołajczyk",
-	jobTitle: "Psycholog, analityk zachowania (BCBA)",
+	name: siteConfig.author.name,
+	jobTitle: siteConfig.author.jobTitle,
 	url: Astro.site?.href,
 };
 const structuredDataItems = [
@@ -108,7 +109,7 @@ const structuredDataItems = [
 		<meta name="theme-color" content="#ffffff" />
 		<meta name="apple-mobile-web-app-title" content="MÓZG" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Rozmowy z Mózgiem" />
+		<meta property="og:site_name" content={siteConfig.siteName} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
@@ -181,7 +182,7 @@ const structuredDataItems = [
 		</header>
 		<slot />
 		<footer class="site-footer">
-			Małgorzata Mikołajczyk · Psycholog · analityk zachowania (BCBA)
+			{siteConfig.author.name} · {siteConfig.author.jobTitle}
 		</footer>
 	</body>
 </html>

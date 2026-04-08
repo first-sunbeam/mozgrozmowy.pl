@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/content-pages.css";
 import type { CollectionEntry } from "astro:content";
+import { siteConfig } from "../../data/site";
+import { ui } from "../../i18n/ui";
 import type { Lang } from "../../i18n/ui";
 
 interface Props {
@@ -15,22 +17,45 @@ interface Props {
 
 const { entry, lang, pathname, alternatePath, kicker, Content } = Astro.props;
 
+const articleUrl = Astro.site ? new URL(pathname, Astro.site).href : undefined;
+const publisherLogoUrl = Astro.site
+	? new URL(siteConfig.defaultOgImagePath, Astro.site).href
+	: undefined;
+const labels = ui[lang].article;
+const dateLocale = lang === "pl" ? "pl-PL" : "en-US";
+const formatDate = (date: Date) =>
+	new Intl.DateTimeFormat(dateLocale, {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	}).format(date);
+const publishedDate = formatDate(entry.data.publishedAt);
+const updatedDate = entry.data.updatedAt ? formatDate(entry.data.updatedAt) : undefined;
+
 const articleStructuredData = {
 	"@context": "https://schema.org",
 	"@type": "Article",
 	headline: entry.data.title,
 	description: entry.data.description,
-	url: Astro.site ? new URL(pathname, Astro.site).href : undefined,
-	mainEntityOfPage: Astro.site ? new URL(pathname, Astro.site).href : undefined,
+	url: articleUrl,
+	mainEntityOfPage: articleUrl,
+	datePublished: entry.data.publishedAt.toISOString(),
+	dateModified: entry.data.updatedAt?.toISOString(),
 	inLanguage: lang,
 	author: {
 		"@type": "Person",
-		name: "Małgorzata Mikołajczyk",
+		name: siteConfig.author.name,
 	},
 	publisher: {
 		"@type": "Organization",
-		name: "Rozmowy z Mózgiem",
+		name: siteConfig.siteName,
 		url: Astro.site?.href,
+		logo: publisherLogoUrl
+			? {
+					"@type": "ImageObject",
+					url: publisherLogoUrl,
+				}
+			: undefined,
 	},
 };
 ---
@@ -47,6 +72,15 @@ const articleStructuredData = {
 		<article class="article-shell">
 			<p class="page-kicker">{kicker}</p>
 			<h1>{entry.data.title}</h1>
+			<p class="article-meta">
+				{labels.publishedLabel}: <time datetime={entry.data.publishedAt.toISOString()}>{publishedDate}</time>
+				{updatedDate && (
+					<>
+						<span aria-hidden="true"> · </span>
+						{labels.updatedLabel}: <time datetime={entry.data.updatedAt?.toISOString()}>{updatedDate}</time>
+					</>
+				)}
+			</p>
 			<p class="article-description">{entry.data.description}</p>
 			<div class="article-content">
 				<Content />
@@ -71,6 +105,13 @@ const articleStructuredData = {
 		margin: 0 0 1rem;
 		font-size: clamp(2rem, 5vw, 3rem);
 		line-height: 1.08;
+	}
+
+	.article-meta {
+		margin: 0 0 0.9rem;
+		color: var(--color-text-secondary);
+		font-size: 0.95rem;
+		line-height: 1.6;
 	}
 
 	.article-description {

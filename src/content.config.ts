@@ -14,7 +14,8 @@ const conversations = defineCollection({
 		topics: z.array(z.string()),
 		published: z.boolean(),
 		featured: z.boolean().optional(),
-		order: z.number().optional(),
+		publishedAt: z.coerce.date(),
+		updatedAt: z.coerce.date().optional(),
 		lang: z.enum(["pl", "en"]),
 		translationKey: z.string()
 	})

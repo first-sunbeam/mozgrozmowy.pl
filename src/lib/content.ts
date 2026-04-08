@@ -15,7 +15,9 @@ export async function getPublishedConversations(lang: Lang) {
 	return (await getCollection(
 		"conversations",
 		({ data }) => data.lang === lang && data.published,
-	)).sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+	)).sort(
+		(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+	);
 }
 
 export async function getConversationStaticPaths(lang: Lang) {
@@ -25,7 +27,9 @@ export async function getConversationStaticPaths(lang: Lang) {
 	);
 	const conversations = allConversations
 		.filter((entry) => entry.data.lang === lang)
-		.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+		.sort(
+			(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+		);
 
 	return conversations.map((entry) => {
 		const alternateEntry = allConversations.find(
