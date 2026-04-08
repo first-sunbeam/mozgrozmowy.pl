@@ -10,6 +10,7 @@ interface Props {
 	lang?: string;
 	pathname?: string;
 	alternatePath?: string;
+	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const toLocalizedPath = (basePath: string, currentLang: string) =>
@@ -33,6 +34,7 @@ const {
 	lang = "pl",
 	pathname = "/",
 	alternatePath,
+	structuredData,
 } = Astro.props;
 
 const labels =
@@ -55,6 +57,40 @@ const labels =
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
+const canonicalUrl = Astro.site ? new URL(pathname, Astro.site).href : undefined;
+const plPath = lang === "pl" ? pathname : switchHref;
+const enPath = lang === "en" ? pathname : switchHref;
+const plAlternateUrl = Astro.site ? new URL(plPath, Astro.site).href : undefined;
+const enAlternateUrl = Astro.site ? new URL(enPath, Astro.site).href : undefined;
+const xDefaultUrl = plAlternateUrl;
+const ogImageUrl = Astro.site
+	? new URL("/web-app-manifest-512x512.png", Astro.site).href
+	: undefined;
+const ogLocale = lang === "pl" ? "pl_PL" : "en_US";
+const ogAlternateLocale = lang === "pl" ? "en_US" : "pl_PL";
+const websiteStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Rozmowy z Mózgiem",
+	url: Astro.site?.href,
+	inLanguage: lang,
+};
+const personStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Małgorzata Mikołajczyk",
+	jobTitle: "Psycholog, analityk zachowania (BCBA)",
+	url: Astro.site?.href,
+};
+const structuredDataItems = [
+	websiteStructuredData,
+	personStructuredData,
+	...(structuredData
+		? Array.isArray(structuredData)
+			? structuredData
+			: [structuredData]
+		: []),
+];
 ---
 
 <!doctype html>
@@ -71,6 +107,25 @@ const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#ffffff" />
 		<meta name="apple-mobile-web-app-title" content="MÓZG" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Rozmowy z Mózgiem" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+		<meta property="og:locale" content={ogLocale} />
+		<meta property="og:locale:alternate" content={ogAlternateLocale} />
+		{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+		{plAlternateUrl && <link rel="alternate" hreflang="pl" href={plAlternateUrl} />}
+		{enAlternateUrl && <link rel="alternate" hreflang="en" href={enAlternateUrl} />}
+		{xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
+		{structuredDataItems.map((item) => (
+			<script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
+		))}
 		<title>{title}</title>
 	</head>
 	<body>

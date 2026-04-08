@@ -30,8 +30,8 @@ export const ui = {
 				"Pogrupowany widok wątków obecnych na stronie, uporządkowany według tematów, a nie chronologii.",
 		},
 		about: {
-			title: "About | mozgrozmowy.pl",
-			description: "Author context page.",
+			title: "Kontekst | mozgrozmowy.pl",
+			description: "Strona z kontekstem autorskim.",
 			pathname: "/about",
 			kicker: "O mnie",
 			heading: "Kontekst",

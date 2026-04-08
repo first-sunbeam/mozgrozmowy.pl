@@ -14,6 +14,25 @@ interface Props {
 }
 
 const { entry, lang, pathname, alternatePath, kicker, Content } = Astro.props;
+
+const articleStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	headline: entry.data.title,
+	description: entry.data.description,
+	url: Astro.site ? new URL(pathname, Astro.site).href : undefined,
+	mainEntityOfPage: Astro.site ? new URL(pathname, Astro.site).href : undefined,
+	inLanguage: lang,
+	author: {
+		"@type": "Person",
+		name: "Małgorzata Mikołajczyk",
+	},
+	publisher: {
+		"@type": "Organization",
+		name: "Rozmowy z Mózgiem",
+		url: Astro.site?.href,
+	},
+};
 ---
 
 <Layout
@@ -22,6 +41,7 @@ const { entry, lang, pathname, alternatePath, kicker, Content } = Astro.props;
 	lang={lang}
 	pathname={pathname}
 	alternatePath={alternatePath}
+	structuredData={articleStructuredData}
 >
 	<main class="page-shell">
 		<article class="article-shell">
