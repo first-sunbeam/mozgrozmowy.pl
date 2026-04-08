@@ -1,13 +1,14 @@
 ---
-import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/content-pages.css";
+import { render } from "astro:content";
+import ConversationArticlePage from "../../components/pages/ConversationArticlePage.astro";
+import { ui } from "../../i18n/ui";
+import {
+	getConversationPath,
+	getPublishedConversations,
+} from "../../lib/content";
 
 export async function getStaticPaths() {
-	const conversations = await getCollection(
-		"conversations",
-		({ data }) => data.lang === "pl" && data.published,
-	);
+	const conversations = await getPublishedConversations("pl");
 
 	return conversations.map((entry) => ({
 		params: { slug: entry.data.slug },
@@ -19,50 +20,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<Layout
-	title={`${entry.data.title} | mozgrozmowy.pl`}
-	description={entry.data.description}
+<ConversationArticlePage
+	entry={entry}
 	lang="pl"
-	pathname={`/conversations/${entry.data.slug}`}
->
-	<main class="page-shell">
-		<article class="article-shell">
-			<p class="page-kicker">Rozmowa</p>
-			<h1>{entry.data.title}</h1>
-			<p class="article-description">{entry.data.description}</p>
-			<div class="article-content">
-				<Content />
-			</div>
-		</article>
-	</main>
-</Layout>
-
-<style>
-	.article-shell {
-		padding: 1.75rem;
-		border: 1px solid var(--border-light);
-		border-radius: 24px;
-		background: var(--color-white);
-		box-shadow: var(--shadow-soft);
-		max-width: 70ch;
-		margin-left:auto;
-		margin-right:auto;
-	}
-
-	.article-shell h1 {
-		margin: 0 0 1rem;
-		font-size: clamp(2rem, 5vw, 3rem);
-		line-height: 1.08;
-	}
-
-	.article-description {
-		margin: 0 0 1.5rem;
-		color: var(--color-text-secondary);
-		line-height: 1.7;
-	}
-
-	.article-content {
-		display: grid;
-		gap: 0.85rem;
-	}
-</style>
+	pathname={getConversationPath("pl", entry.data.slug)}
+	kicker={ui.pl.article.kicker}
+	Content={Content}
+/>

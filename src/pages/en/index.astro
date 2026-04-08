@@ -1,39 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import ConversationList from "../../components/ConversationList.astro";
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/content-pages.css";
+import ConversationOverviewPage from "../../components/pages/ConversationOverviewPage.astro";
+import { ui } from "../../i18n/ui";
+import {
+	getPublishedConversations,
+	toConversationListItems,
+} from "../../lib/content";
 
-const conversations = (await getCollection("conversations", ({ data }) => data.lang === "en" && data.published))
-	.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
-	.slice(0, 3)
-	.map((entry) => ({
-		title: entry.data.title,
-		description: entry.data.description,
-		href: `/en/conversations/${entry.data.slug}`
-	}));
+const copy = ui.en.home;
+const conversations = toConversationListItems(
+	(await getPublishedConversations("en")).slice(0, 3),
+	"en",
+);
 ---
 
-<Layout
-	title="Latest conversations | mozgrozmowy.pl"
-	description="Latest conversations from the series."
+<ConversationOverviewPage
 	lang="en"
-	pathname="/en/"
->
-	<main class="page-shell">
-		<section class="page-intro page-intro--soft">
-			<p class="page-kicker">Latest conversations</p>
-			<h1>
-				Calm, readable conversations about therapy, overload, and systems of
-				support.
-			</h1>
-			<p>
-				This homepage shows the latest entries from the series. The structure
-				stays simple: clear titles, short descriptions, and space for the
-				writing itself.
-			</p>
-		</section>
-
-		<ConversationList items={conversations} />
-	</main>
-</Layout>
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	items={conversations}
+	variant="soft"
+/>

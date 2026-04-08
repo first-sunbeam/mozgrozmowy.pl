@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/content-pages.css";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+	lang: Lang;
+	pathname: string;
+	title: string;
+	description: string;
+	kicker: string;
+	heading: string;
+	intro: string;
+	paragraphs: readonly string[];
+	contactLead: string;
+	contactLinkLabel: string;
+}
+
+const {
+	lang,
+	pathname,
+	title,
+	description,
+	kicker,
+	heading,
+	intro,
+	paragraphs,
+	contactLead,
+	contactLinkLabel,
+} = Astro.props;
+---
+
+<Layout title={title} description={description} lang={lang} pathname={pathname}>
+	<main class="page-shell">
+		<section class="page-intro page-intro--alt">
+			<p class="page-kicker">{kicker}</p>
+			<h1>{heading}</h1>
+			<p>{intro}</p>
+		</section>
+
+		<section class="about-card">
+			{paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+			<p>
+				{contactLead}
+				<span id="contact-link"></span>.
+			</p>
+		</section>
+
+		<script is:inline define:vars={{ contactLinkLabel }}>
+			const user = "kontakt";
+			const domain = "mozgrozmowy.pl";
+			const el = document.getElementById("contact-link");
+
+			if (el) {
+				el.innerHTML = `<a href="mailto:${user}@${domain}">${contactLinkLabel}</a>`;
+			}
+		</script>
+	</main>
+</Layout>

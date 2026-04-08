@@ -1,31 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import ConversationList from "../components/ConversationList.astro";
-import Layout from "../layouts/Layout.astro";
-import "../styles/content-pages.css";
+import ConversationOverviewPage from "../components/pages/ConversationOverviewPage.astro";
+import { ui } from "../i18n/ui";
+import {
+	getPublishedConversations,
+	toConversationListItems,
+} from "../lib/content";
 
-const conversations = (await getCollection("conversations", ({ data }) => data.lang === "pl" && data.published))
-	.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
-	.map((entry) => ({
-		title: entry.data.title,
-		description: entry.data.description,
-		href: `/conversations/${entry.data.slug}`
-	}));
+const copy = ui.pl.conversations;
+const conversations = toConversationListItems(
+	await getPublishedConversations("pl"),
+	"pl",
+);
 ---
 
-<Layout
-	title="Wszystkie rozmowy | mozgrozmowy.pl"
-	description="Wszystkie rozmowy z serii."
+<ConversationOverviewPage
 	lang="pl"
-	pathname="/conversations"
->
-	<main class="page-shell">
-		<section class="page-intro page-intro--section">
-			<p class="page-kicker">Rozmowy</p>
-			<h1>Wszystkie rozmowy</h1>
-			<p>Pełny widok serii rozmów zebrany w jednej, czytelnej liście.</p>
-		</section>
-
-		<ConversationList items={conversations} />
-	</main>
-</Layout>
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	items={conversations}
+	variant="section"
+/>

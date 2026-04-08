@@ -1,26 +1,18 @@
 ---
-import TopicMapComponent from "../../components/TopicMap.astro";
+import TopicMapPage from "../../components/pages/TopicMapPage.astro";
 import { topicMap } from "../../data/topics";
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/content-pages.css";
+import { ui } from "../../i18n/ui";
+
+const copy = ui.en.topicMap;
 ---
 
-<Layout
-	title="Topic map | mozgrozmowy.pl"
-	description="Thematic map of the site's content."
+<TopicMapPage
 	lang="en"
-	pathname="/en/topic-map"
->
-	<main class="page-shell">
-		<section class="page-intro page-intro--alt">
-			<p class="page-kicker">Topic map</p>
-			<h1>Thematic map of the content</h1>
-			<p>
-				A grouped view of the ideas running through the site, organized by theme
-				instead of chronology.
-			</p>
-		</section>
-
-		<TopicMapComponent groups={topicMap.en} />
-	</main>
-</Layout>
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	groups={topicMap.en}
+/>

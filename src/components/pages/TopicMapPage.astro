@@ -1,0 +1,37 @@
+---
+import TopicMapComponent from "../TopicMap.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/content-pages.css";
+import type { Lang } from "../../i18n/ui";
+
+interface TopicGroup {
+	title: string;
+	items: string[];
+}
+
+interface Props {
+	lang: Lang;
+	pathname: string;
+	title: string;
+	description: string;
+	kicker: string;
+	heading: string;
+	intro: string;
+	groups: TopicGroup[];
+}
+
+const { lang, pathname, title, description, kicker, heading, intro, groups } =
+	Astro.props;
+---
+
+<Layout title={title} description={description} lang={lang} pathname={pathname}>
+	<main class="page-shell">
+		<section class="page-intro page-intro--alt">
+			<p class="page-kicker">{kicker}</p>
+			<h1>{heading}</h1>
+			<p>{intro}</p>
+		</section>
+
+		<TopicMapComponent groups={groups} />
+	</main>
+</Layout>

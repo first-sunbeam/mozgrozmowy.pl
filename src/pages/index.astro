@@ -1,38 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import ConversationList from "../components/ConversationList.astro";
-import Layout from "../layouts/Layout.astro";
-import "../styles/content-pages.css";
+import ConversationOverviewPage from "../components/pages/ConversationOverviewPage.astro";
+import { ui } from "../i18n/ui";
+import {
+	getPublishedConversations,
+	toConversationListItems,
+} from "../lib/content";
 
-const conversations = (await getCollection("conversations", ({ data }) => data.lang === "pl" && data.published))
-	.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999))
-	.slice(0, 3)
-	.map((entry) => ({
-		title: entry.data.title,
-		description: entry.data.description,
-		href: `/conversations/${entry.data.slug}`
-	}));
+const copy = ui.pl.home;
+const conversations = toConversationListItems(
+	(await getPublishedConversations("pl")).slice(0, 3),
+	"pl",
+);
 ---
 
-<Layout
-	title="Najnowsze rozmowy | mozgrozmowy.pl"
-	description="Najnowsze rozmowy z serii Rozmowy z Mózgiem."
+<ConversationOverviewPage
 	lang="pl"
-	pathname="/"
->
-	<main class="page-shell">
-		<section class="page-intro page-intro--soft">
-			<p class="page-kicker">Najnowsze rozmowy</p>
-			<h1>
-				Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach
-				wsparcia.
-			</h1>
-			<p>
-				Strona główna pokazuje najnowsze teksty z serii. Układ pozostaje prosty:
-				czytelne tytuły, krótkie opisy i miejsce na samą treść.
-			</p>
-		</section>
-
-		<ConversationList items={conversations} />
-	</main>
-</Layout>
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	items={conversations}
+	variant="soft"
+/>

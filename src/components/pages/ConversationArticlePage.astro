@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/content-pages.css";
+import type { CollectionEntry } from "astro:content";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+	entry: CollectionEntry<"conversations">;
+	lang: Lang;
+	pathname: string;
+	kicker: string;
+	Content: any;
+}
+
+const { entry, lang, pathname, kicker, Content } = Astro.props;
+---
+
+<Layout
+	title={`${entry.data.title} | mozgrozmowy.pl`}
+	description={entry.data.description}
+	lang={lang}
+	pathname={pathname}
+>
+	<main class="page-shell">
+		<article class="article-shell">
+			<p class="page-kicker">{kicker}</p>
+			<h1>{entry.data.title}</h1>
+			<p class="article-description">{entry.data.description}</p>
+			<div class="article-content">
+				<Content />
+			</div>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	.article-shell {
+		padding: 1.75rem;
+		border: 1px solid var(--border-light);
+		border-radius: 24px;
+		background: var(--color-white);
+		box-shadow: var(--shadow-soft);
+		max-width: 70ch;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.article-shell h1 {
+		margin: 0 0 1rem;
+		font-size: clamp(2rem, 5vw, 3rem);
+		line-height: 1.08;
+	}
+
+	.article-description {
+		margin: 0 0 1.5rem;
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+	}
+
+	.article-content {
+		display: grid;
+		gap: 0.85rem;
+	}
+</style>

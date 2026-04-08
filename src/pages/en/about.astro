@@ -1,48 +1,19 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/content-pages.css";
+import AboutPage from "../../components/pages/AboutPage.astro";
+import { ui } from "../../i18n/ui";
+
+const copy = ui.en.about;
 ---
 
-<Layout
-	title="About | mozgrozmowy.pl"
-	description="Author context page."
+<AboutPage
 	lang="en"
-	pathname="/en/about"
->
-	<main class="page-shell">
-		<section class="page-intro page-intro--alt">
-			<p class="page-kicker">About</p>
-			<h1>Context</h1>
-			<p>
-				This page gives context: who is behind the conversations and how this
-				project approaches analysis, therapy, overload, and lived experience.
-			</p>
-		</section>
-
-		<section class="about-card">
-			<p>
-				I work at the intersection of lived experience and analysis. This
-				project is not about creating noise around neurodivergence, but about
-				building a calm, precise language for therapy, support systems,
-				overload, and everyday functioning.
-			</p>
-			<p>
-				The structure is intentionally simple. No archives, no metadata clutter,
-				no unnecessary interface. Just a clear way into the ideas.
-			</p>
-			<p>
-				If you want to reach out —
-				<span id="contact-link"></span>.
-			</p>
-		</section>
-		<script>
-			const user = "kontakt";
-			const domain = "mozgrozmowy.pl";
-			const el = document.getElementById("contact-link");
-
-			if (el) {
-				el.innerHTML = `<a href="mailto:${user}@${domain}">write to me</a>`;
-			}
-		</script>
-	</main>
-</Layout>
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	paragraphs={copy.paragraphs}
+	contactLead={copy.contactLead}
+	contactLinkLabel={copy.contactLinkLabel}
+/>

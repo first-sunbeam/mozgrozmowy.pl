@@ -1,0 +1,43 @@
+---
+import ConversationList from "../ConversationList.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/content-pages.css";
+import type { Lang } from "../../i18n/ui";
+import type { ConversationListItem } from "../../lib/content";
+
+interface Props {
+	lang: Lang;
+	pathname: string;
+	title: string;
+	description: string;
+	kicker: string;
+	heading: string;
+	intro: string;
+	items: ConversationListItem[];
+	variant?: "soft" | "section";
+}
+
+const {
+	lang,
+	pathname,
+	title,
+	description,
+	kicker,
+	heading,
+	intro,
+	items,
+	variant = "section",
+} = Astro.props;
+---
+
+<Layout title={title} description={description} lang={lang} pathname={pathname}>
+	<main class="page-shell">
+		<section class:list={["page-intro", `page-intro--${variant}`]}>
+			<p class="page-kicker">{kicker}</p>
+			<h1>{heading}</h1>
+			<p>{intro}</p>
+		</section>
+
+		<ConversationList items={items} />
+	</main>
+</Layout>
