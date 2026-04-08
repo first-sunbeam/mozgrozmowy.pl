@@ -67,6 +67,40 @@
 	margin-top: 1rem;
 }
 
+.dialog-line {
+	padding: 1rem 1.1rem;
+	border: 1px solid var(--border-light);
+	border-radius: 18px;
+	background: var(--color-white);
+}
+
+.dialog-line--brain {
+	background: color-mix(
+		in srgb,
+		var(--bg-main) 78%,
+		var(--color-bg-light) 22%
+	);
+}
+
+.dialog-line__speaker,
+.dialog-line__text {
+	margin: 0;
+}
+
+.dialog-line__speaker {
+	margin-bottom: 0.5rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+}
+
+.dialog-line__text {
+	color: var(--color-text-secondary);
+	line-height: 1.65;
+}
+
 @media (max-width: 900px) {
 	.about-card {
 		display: block;
