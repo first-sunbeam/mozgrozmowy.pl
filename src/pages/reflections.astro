@@ -1,0 +1,23 @@
+---
+import ConversationOverviewPage from "../components/pages/ConversationOverviewPage.astro";
+import { ui } from "../i18n/ui";
+import {
+	getPublishedReflections,
+	toReflectionListItems,
+} from "../lib/content";
+
+const copy = ui.pl.reflections;
+const reflections = toReflectionListItems(await getPublishedReflections("pl"), "pl");
+---
+
+<ConversationOverviewPage
+	lang="pl"
+	pathname={copy.pathname}
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	items={reflections}
+	variant="section"
+/>

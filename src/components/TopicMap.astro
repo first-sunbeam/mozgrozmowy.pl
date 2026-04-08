@@ -1,45 +1,136 @@
 ---
+interface TopicItem {
+	title: string;
+	href: string;
+	kind?: string;
+	description?: string;
+}
+
 interface TopicGroup {
 	title: string;
-	items: string[];
+	items: TopicItem[];
 }
 
 interface Props {
 	groups: TopicGroup[];
+	featured?: TopicItem[];
+	featuredTitle?: string;
 }
 
-const { groups } = Astro.props;
+const { groups, featured = [], featuredTitle } = Astro.props;
 ---
 
-<div class="topic-map">
-	{groups.map((group) => (
-		<section class="topic-group">
-			<h2>{group.title}</h2>
-			<ul>
-				{group.items.map((item) => <li>{item}</li>)}
-			</ul>
+<div class="topic-map-layout">
+	{featured.length > 0 && (
+		<section class="topic-featured">
+			<h2>{featuredTitle}</h2>
+			<div class="topic-featured__grid">
+				{featured.map((item) => (
+					<article class="topic-featured__card">
+						<p class="topic-featured__meta">{item.kind}</p>
+						<h3><a href={item.href}>{item.title}</a></h3>
+						{item.description && <p>{item.description}</p>}
+					</article>
+				))}
+			</div>
 		</section>
-	))}
+	)}
+
+	<div class="topic-map">
+		{groups.map((group) => (
+			<section class="topic-group">
+				<h2>{group.title}</h2>
+				<ul>
+					{group.items.map((item) => (
+						<li>
+							<div class="topic-item__row">
+								<a href={item.href}>{item.title}</a>
+								{item.kind && <span class="topic-kind">{item.kind}</span>}
+							</div>
+							{item.description && <p class="topic-item__description">{item.description}</p>}
+						</li>
+					))}
+				</ul>
+			</section>
+		))}
+	</div>
 </div>
 
 <style>
-	.topic-map {
+	.topic-map-layout {
 		display: grid;
 		gap: 1rem;
 	}
 
+	.topic-featured,
 	.topic-group {
 		padding: 1.5rem;
 		border: 1px solid var(--border-light);
 		border-radius: 20px;
-		background: color-mix(in srgb, var(--bg-main) 82%, var(--color-bg-light) 18%);
 		box-shadow: var(--shadow-soft);
 	}
 
+	.topic-featured {
+		background: var(--color-white);
+	}
+
+	.topic-group {
+		background: color-mix(in srgb, var(--bg-main) 82%, var(--color-bg-light) 18%);
+	}
+
+	.topic-featured h2,
 	.topic-group h2 {
 		margin: 0 0 0.9rem;
-		font-size: 1.15rem;
+		font-size: 1.02rem;
 		color: var(--color-text-primary);
+	}
+
+	.topic-featured__grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+
+	.topic-featured__card {
+		padding: 1rem;
+		border: 1px solid var(--border-light);
+		border-radius: 16px;
+		background: color-mix(in srgb, var(--bg-main) 84%, var(--color-bg-light) 16%);
+	}
+
+	.topic-featured__meta {
+		margin: 0 0 0.4rem;
+		font-size: 0.76rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		font-weight: 700;
+	}
+
+	.topic-featured__card h3 {
+		margin: 0 0 0.45rem;
+		font-size: 0.96rem;
+		line-height: 1.35;
+	}
+
+	.topic-featured__card h3 a,
+	.topic-group a {
+		color: var(--color-text-primary);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.topic-featured__card h3 a:hover,
+	.topic-group a:hover {
+		color: var(--color-primary-hover);
+	}
+
+	.topic-featured__card p:last-child,
+	.topic-item__description {
+		margin: 0.35rem 0 0;
+		color: var(--color-text-secondary);
+		line-height: 1.55;
+		font-size: 0.95rem;
 	}
 
 	.topic-group ul {
@@ -49,6 +140,24 @@ const { groups } = Astro.props;
 	}
 
 	.topic-group li + li {
-		margin-top: 0.55rem;
+		margin-top: 0.85rem;
+	}
+
+	.topic-item__row {
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.topic-kind {
+		padding: 0.14rem 0.5rem;
+		border-radius: 999px;
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		background: color-mix(in srgb, var(--color-primary) 10%, white 90%);
+		border: 1px solid color-mix(in srgb, var(--color-primary) 18%, white 82%);
 	}
 </style>

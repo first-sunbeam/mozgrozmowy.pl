@@ -42,6 +42,7 @@ const labels =
 	lang === "pl"
 		? {
 				navConversations: "Rozmowy",
+				navReflections: "Refleksje",
 				navTopicMap: "Mapa tematow",
 				navAbout: "Kontekst",
 				homeAriaLabel: "Strona glowna",
@@ -50,6 +51,7 @@ const labels =
 			}
 		: {
 				navConversations: "Conversations",
+				navReflections: "Reflections",
 				navTopicMap: "Topic map",
 				navAbout: "Context",
 				homeAriaLabel: "Home page",
@@ -152,6 +154,18 @@ const structuredDataItems = [
 						href={toLocalizedPath("/conversations", lang)}
 					>
 						{labels.navConversations}
+					</a>
+					<a
+						class:list={{
+							active:
+								pathname === "/reflections" ||
+								pathname.startsWith("/reflections/") ||
+								pathname === "/en/reflections" ||
+								pathname.startsWith("/en/reflections/"),
+						}}
+						href={toLocalizedPath("/reflections", lang)}
+					>
+						{labels.navReflections}
 					</a>
 					<a
 						class:list={{

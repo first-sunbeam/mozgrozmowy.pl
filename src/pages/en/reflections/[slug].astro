@@ -1,0 +1,22 @@
+---
+import { render } from "astro:content";
+import ConversationArticlePage from "../../../components/pages/ConversationArticlePage.astro";
+import { ui } from "../../../i18n/ui";
+import { getReflectionPath, getReflectionStaticPaths } from "../../../lib/content";
+
+export async function getStaticPaths() {
+	return getReflectionStaticPaths("en");
+}
+
+const { entry, alternatePath } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ConversationArticlePage
+	entry={entry}
+	lang="en"
+	pathname={getReflectionPath("en", entry.data.slug)}
+	alternatePath={alternatePath}
+	kicker={ui.en.reflectionArticle.kicker}
+	Content={Content}
+/>

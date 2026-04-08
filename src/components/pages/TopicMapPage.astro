@@ -4,9 +4,16 @@ import Layout from "../../layouts/Layout.astro";
 import "../../styles/content-pages.css";
 import type { Lang } from "../../i18n/ui";
 
+interface TopicItem {
+	title: string;
+	href: string;
+	kind?: string;
+	description?: string;
+}
+
 interface TopicGroup {
 	title: string;
-	items: string[];
+	items: TopicItem[];
 }
 
 interface Props {
@@ -18,10 +25,22 @@ interface Props {
 	heading: string;
 	intro: string;
 	groups: TopicGroup[];
+	featured?: TopicItem[];
+	featuredTitle?: string;
 }
 
-const { lang, pathname, title, description, kicker, heading, intro, groups } =
-	Astro.props;
+const {
+	lang,
+	pathname,
+	title,
+	description,
+	kicker,
+	heading,
+	intro,
+	groups,
+	featured,
+	featuredTitle,
+} = Astro.props;
 ---
 
 <Layout title={title} description={description} lang={lang} pathname={pathname}>
@@ -32,6 +51,6 @@ const { lang, pathname, title, description, kicker, heading, intro, groups } =
 			<p>{intro}</p>
 		</section>
 
-		<TopicMapComponent groups={groups} />
+		<TopicMapComponent groups={groups} featured={featured} featuredTitle={featuredTitle} />
 	</main>
 </Layout>

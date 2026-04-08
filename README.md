@@ -1,4 +1,4 @@
-# Fumbling Field
+# MozgRozmowy.pl
 
 A bilingual Astro site in Polish and English for publishing conversations about therapy, overload, support systems, and lived experience.
 

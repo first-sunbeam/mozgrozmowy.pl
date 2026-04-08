@@ -20,6 +20,14 @@ export const ui = {
 			heading: "Wszystkie rozmowy",
 			intro: "Pełny widok serii rozmów zebrany w jednej, czytelnej liście.",
 		},
+		reflections: {
+			title: "Wszystkie refleksje | mozgrozmowy.pl",
+			description: "Wszystkie refleksje na stronie.",
+			pathname: "/reflections",
+			kicker: "Refleksje",
+			heading: "Wszystkie refleksje",
+			intro: "Pełny widok refleksji zebrany w jednej, czytelnej liście.",
+		},
 		topicMap: {
 			title: "Mapa tematów | mozgrozmowy.pl",
 			description: "Tematyczna mapa treści na stronie.",
@@ -49,6 +57,9 @@ export const ui = {
 			publishedLabel: "Opublikowano",
 			updatedLabel: "Aktualizacja",
 		},
+		reflectionArticle: {
+			kicker: "Refleksja",
+		},
 	},
 	en: {
 		home: {
@@ -68,6 +79,14 @@ export const ui = {
 			kicker: "Conversations",
 			heading: "All conversations",
 			intro: "A complete view of the conversation series, kept in one clean list.",
+		},
+		reflections: {
+			title: "All reflections | mozgrozmowy.pl",
+			description: "All reflections on the site.",
+			pathname: "/en/reflections",
+			kicker: "Reflections",
+			heading: "All reflections",
+			intro: "A complete view of the reflections, gathered in one clean list.",
 		},
 		topicMap: {
 			title: "Topic map | mozgrozmowy.pl",
@@ -97,6 +116,9 @@ export const ui = {
 			kicker: "Conversation",
 			publishedLabel: "Published",
 			updatedLabel: "Updated",
+		},
+		reflectionArticle: {
+			kicker: "Reflection",
 		},
 	},
 } as const;
