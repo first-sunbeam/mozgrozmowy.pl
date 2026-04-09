@@ -1,15 +1,24 @@
 ---
 interface Props {
 	speaker: string;
-	text: string;
+	text?: string;
 }
 
 const { speaker, text } = Astro.props;
 const isBrain =
 	speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "brain";
+const hasContentSlot = Astro.slots.has("default");
 ---
 
 <div class:list={["dialog-line", { "dialog-line--brain": isBrain }]}> 
 	<p class="dialog-line__speaker">{speaker}</p>
-	<p class="dialog-line__text">{text}</p>
+	{
+		hasContentSlot ? (
+			<div class="dialog-line__text">
+				<slot />
+			</div>
+		) : (
+			<p class="dialog-line__text">{text}</p>
+		)
+	}
 </div>

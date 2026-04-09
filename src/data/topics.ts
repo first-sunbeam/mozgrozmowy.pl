@@ -137,7 +137,7 @@ export const topicMap = {
 						description: "O tym, dlaczego zewnętrzne zachowanie nie jest wiarygodnym wskaźnikiem słuchania i przetwarzania.",
 					},
 					{
-						title: "#doubleempathy – Logbook poznawczo-strukturalny",
+						title: "Logbook poznawczo-strukturalny",
 						href: "/reflections/logbook-poznawczo-strukturalny-double-empathy",
 						kind: "refleksja",
 						description: "Zapis rozmów, w których analiza jest odbierana jako chłód, choć jest formą kontaktu i precyzji.",
