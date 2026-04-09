@@ -9,7 +9,7 @@ const isBrain =
 	speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "brain";
 ---
 
-<div class:list={["dialog-line", { "dialog-line--brain": isBrain }]}>
+<div class:list={["dialog-line", { "dialog-line--brain": isBrain }]}> 
 	<p class="dialog-line__speaker">{speaker}</p>
 	<p class="dialog-line__text">{text}</p>
 </div>

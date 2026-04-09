@@ -189,7 +189,7 @@ export const topicMap = {
 						description: "O luce między istnieniem opcji a ich realną wykonalnością, gdy system odbiera wpływ, a zostawia odpowiedzialność.",
 					},
 					{
-						title: "Wykluczenie przez konstrukcję pomocy – esej",
+						title: "Wykluczenie przez konstrukcję pomocy – esej o tragedii z Poznania",
 						href: "/reflections/wykluczenie-przez-konstrukcje-pomocy-esej",
 						kind: "esej",
 						description: "Esej o tragedii z Poznania, autonomii i systemie, który myli świadczenie z prawdziwym wsparciem.",
