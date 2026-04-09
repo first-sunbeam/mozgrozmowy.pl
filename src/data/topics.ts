@@ -388,6 +388,12 @@ export const topicMap = {
 						description: "Relationships that do not fit social definitions of closeness but are still deeply real.",
 					},
 					{
+						title: "Autistic Pride Day: I Don't Celebrate. But I'm Here.",
+						href: "/en/conversations/autistic-pride-day-i-dont-celebrate-but-i-am",
+						kind: "conversation",
+						description: "Not about performative celebration, but about being autistic without having to justify your existence.",
+					},
+					{
 						title: "Neurodiversity Is Not a Superpower",
 						href: "/en/conversations/neurodiversity-is-not-a-superpower",
 						kind: "conversation",
@@ -415,6 +421,12 @@ export const topicMap = {
 						href: "/en/conversations/excluded-by-support-structures",
 						kind: "conversation",
 						description: "The gap between available options and actual feasibility when a system removes influence but leaves responsibility.",
+					},
+					{
+						title: "Excluded by the Construction of Support – an Essay on the Poznań Tragedy",
+						href: "/en/reflections/excluded-by-support-structures-essay",
+						kind: "essay",
+						description: "An essay on the Poznań tragedy, autonomy, and a system that mistakes benefits for real support.",
 					},
 					{
 						title: "ABA? Sit Down, I'll Explain. Also in Polish.",
