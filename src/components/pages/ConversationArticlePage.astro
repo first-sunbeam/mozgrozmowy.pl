@@ -1,13 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/content-pages.css";
-import type { CollectionEntry } from "astro:content";
+import { getTagPath } from "../../data/tags";
 import { siteConfig } from "../../data/site";
 import { ui } from "../../i18n/ui";
 import type { Lang } from "../../i18n/ui";
+import type { ArticleEntry } from "../../lib/content";
 
 interface Props {
-	entry: CollectionEntry<"conversations">;
+	entry: ArticleEntry;
 	lang: Lang;
 	pathname: string;
 	alternatePath?: string;
@@ -82,6 +83,18 @@ const articleStructuredData = {
 				)}
 			</p>
 			<p class="article-description">{entry.data.description}</p>
+			{entry.data.topics.length > 0 && (
+				<div class="article-tags">
+					<span class="article-tags__label">{labels.tagsLabel}:</span>
+					<ul class="article-tags__list">
+						{entry.data.topics.map((tag) => (
+							<li>
+								<a href={getTagPath(lang, tag)}>{tag}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
 			<div class="article-content">
 				<Content />
 			</div>
@@ -118,6 +131,47 @@ const articleStructuredData = {
 		margin: 0 0 1.5rem;
 		color: var(--color-text-secondary);
 		line-height: 1.7;
+	}
+
+	.article-tags {
+		margin: 0 0 1.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		align-items: center;
+	}
+
+	.article-tags__label {
+		font-size: 0.92rem;
+		font-weight: 600;
+		color: var(--color-text-secondary);
+	}
+
+	.article-tags__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.article-tags__list a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid var(--border-light);
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--bg-main) 82%, var(--color-bg-light) 18%);
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		font-size: 0.92rem;
+		line-height: 1.2;
+	}
+
+	.article-tags__list a:hover {
+		color: var(--color-primary-hover);
+		border-color: color-mix(in srgb, var(--border-light) 60%, var(--color-primary) 40%);
 	}
 
 	.article-content :global(h2) {

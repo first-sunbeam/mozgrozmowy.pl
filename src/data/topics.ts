@@ -67,7 +67,7 @@ export const topicMap = {
 				title: "PDA, autonomia i regulacja",
 				items: [
 					{
-						title: "Morning Keynote: Amanda Diekman - Low-Demand Parenting",
+						title: "Amanda Diekman - Low-Demand Parenting",
 						href: "/reflections/low-demand-parenting-amanda-diekman",
 						kind: "refleksja",
 						description: "O autonomii jako potrzebie przetrwania i o środowisku, które ma się przesunąć, a nie wymuszać dopasowanie.",

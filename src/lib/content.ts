@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { getTagPath, slugifyTag, translateTag } from "../data/tags";
 import type { Lang } from "../i18n/ui";
 
 export interface ContentListItem {
@@ -11,6 +12,10 @@ export interface ContentListItem {
 export interface ConversationListItem extends ContentListItem {}
 export interface ReflectionListItem extends ContentListItem {}
 
+export type ArticleEntry =
+	| CollectionEntry<"conversations">
+	| CollectionEntry<"reflections">;
+
 const toConversationPath = (lang: Lang, slug: string) =>
 	lang === "pl" ? `/conversations/${slug}` : `/en/conversations/${slug}`;
 
@@ -21,6 +26,12 @@ function sortByPublishedAtDesc<T extends { data: { publishedAt: Date } }>(entrie
 	return entries.sort(
 		(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 	);
+}
+
+function toArticlePath(entry: ArticleEntry) {
+	return entry.collection === "conversations"
+		? getConversationPath(entry.data.lang, entry.data.slug)
+		: getReflectionPath(entry.data.lang, entry.data.slug);
 }
 
 function toListItems<T extends { data: { title: string; description: string; slug: string } }>(
@@ -117,3 +128,36 @@ export function getConversationPath(lang: Lang, slug: string) {
 export function getReflectionPath(lang: Lang, slug: string) {
 	return toReflectionPath(lang, slug);
 }
+
+export async function getPublishedArticles(lang: Lang): Promise<ArticleEntry[]> {
+	const [conversations, reflections] = await Promise.all([
+		getPublishedConversations(lang),
+		getPublishedReflections(lang),
+	]);
+
+	return sortByPublishedAtDesc([...conversations, ...reflections]);
+}
+
+export async function getTagStaticPaths(lang: Lang) {
+	const articles = await getPublishedArticles(lang);
+	const tags = [...new Set(articles.flatMap((entry) => entry.data.topics))];
+
+	return tags.map((tag) => {
+		const entries = articles.filter((entry) => entry.data.topics.includes(tag));
+		const alternateTag = translateTag(tag, lang, lang === "pl" ? "en" : "pl");
+
+		return {
+			params: { tag: slugifyTag(tag) },
+			props: {
+				tag,
+				items: entries.map((entry) => ({
+					title: entry.data.title,
+					description: entry.data.description,
+					href: toArticlePath(entry),
+				})),
+				alternatePath: alternateTag ? getTagPath(lang === "pl" ? "en" : "pl", alternateTag) : undefined,
+			},
+		};
+	});
+}
+

@@ -1,0 +1,25 @@
+---
+import ConversationOverviewPage from "../../components/pages/ConversationOverviewPage.astro";
+import { ui } from "../../i18n/ui";
+import { getTagStaticPaths } from "../../lib/content";
+
+export async function getStaticPaths() {
+	return getTagStaticPaths("pl");
+}
+
+const { tag, items, alternatePath } = Astro.props;
+const labels = ui.pl.tagPage;
+---
+
+<ConversationOverviewPage
+	lang="pl"
+	pathname={`/tags/${Astro.params.tag}`}
+	alternatePath={alternatePath}
+	title={`${labels.title}: ${tag} | mozgrozmowy.pl`}
+	description={`${labels.introPrefix} „${tag}”.`}
+	kicker={labels.kicker}
+	heading={tag}
+	intro={`${labels.introPrefix} „${tag}”.`}
+	items={items}
+	variant="soft"
+/>

@@ -8,6 +8,7 @@ import type { ConversationListItem } from "../../lib/content";
 interface Props {
 	lang: Lang;
 	pathname: string;
+	alternatePath?: string;
 	title: string;
 	description: string;
 	kicker: string;
@@ -20,6 +21,7 @@ interface Props {
 const {
 	lang,
 	pathname,
+	alternatePath,
 	title,
 	description,
 	kicker,
@@ -30,7 +32,7 @@ const {
 } = Astro.props;
 ---
 
-<Layout title={title} description={description} lang={lang} pathname={pathname}>
+<Layout title={title} description={description} lang={lang} pathname={pathname} alternatePath={alternatePath}>
 	<main class="page-shell">
 		<section class:list={["page-intro", `page-intro--${variant}`]}>
 			<p class="page-kicker">{kicker}</p>

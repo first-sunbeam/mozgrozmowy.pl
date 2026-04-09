@@ -56,9 +56,15 @@ export const ui = {
 			kicker: "Rozmowa",
 			publishedLabel: "Opublikowano",
 			updatedLabel: "Aktualizacja",
+			tagsLabel: "Tagi",
 		},
 		reflectionArticle: {
 			kicker: "Refleksja",
+		},
+		tagPage: {
+			title: "Tag",
+			kicker: "Tag",
+			introPrefix: "Wszystkie wpisy oznaczone tagiem",
 		},
 	},
 	en: {
@@ -116,9 +122,15 @@ export const ui = {
 			kicker: "Conversation",
 			publishedLabel: "Published",
 			updatedLabel: "Updated",
+			tagsLabel: "Tags",
 		},
 		reflectionArticle: {
 			kicker: "Reflection",
+		},
+		tagPage: {
+			title: "Tag",
+			kicker: "Tag",
+			introPrefix: "All entries tagged with",
 		},
 	},
 } as const;
