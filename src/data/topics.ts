@@ -73,7 +73,7 @@ export const topicMap = {
 						description: "O autonomii jako potrzebie przetrwania i o środowisku, które ma się przesunąć, a nie wymuszać dopasowanie.",
 					},
 					{
-						title: "#Capability vs #Capacity - wykład Kate Heiny",
+						title: "Capability vs Capacity - wykład Kate Heiny",
 						href: "/reflections/capability-vs-capacity-kate-heina",
 						kind: "refleksja",
 						description: "Umiejętność może istnieć, ale dostęp do niej zależy od aktualnej pojemności układu nerwowego.",
@@ -224,7 +224,7 @@ export const topicMap = {
 						description: "Neurobiologia stresu jako język opisu zachowania, które z zewnątrz wygląda tylko jak opór.",
 					},
 					{
-						title: "#Capability vs #Capacity - wykład Kate Heiny",
+						title: "Capability vs Capacity - wykład Kate Heiny",
 						href: "/reflections/capability-vs-capacity-kate-heina",
 						kind: "refleksja",
 						description: "Przydatny model rozróżniający trwałą umiejętność od chwilowego dostępu do niej.",
