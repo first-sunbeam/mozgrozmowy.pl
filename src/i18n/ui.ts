@@ -48,6 +48,7 @@ export const ui = {
 			paragraphs: [
 				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroróżnorodności, tylko budowania spokojnego, precyzyjnego języka dla terapii, systemów wsparcia, przeciążenia i codziennego funkcjonowania.",
 				"Forma jest celowo prosta. Bez archiwów, bez nadmiaru metadanych, bez zbędnego interfejsu. Jedna czytelna droga do treści.",
+				"Aktualny status projektu: publiczna wersja alpha. Strona jest gotowa do oglądania i czytania, ale będzie dalej rozwijana redakcyjnie i technicznie.",
 			],
 			contactLead: "Jeśli chcesz się odezwać —",
 			contactLinkLabel: "napisz",
@@ -114,6 +115,7 @@ export const ui = {
 			paragraphs: [
 				"I work at the intersection of lived experience and analysis. This project is not about creating noise around neurodivergence, but about building a calm, precise language for therapy, support systems, overload, and everyday functioning.",
 				"The structure is intentionally simple. No archives, no metadata clutter, no unnecessary interface. Just a clear way into the ideas.",
+				"Current project status: public alpha. The site is ready to be viewed and read, but it will continue to evolve both editorially and technically.",
 			],
 			contactLead: "If you want to reach out —",
 			contactLinkLabel: "write to me",

@@ -1,6 +1,10 @@
 # MozgRozmowy.pl
 
+Live site: https://mozgrozmowy.pl/
+
 A bilingual Astro publishing project in Polish and English focused on therapy, overload, support systems, neurodivergent experience, and reflective writing.
+
+Current status: **public alpha**.
 
 The site combines two editorial formats:
 - **conversations** — dialog-based pieces, often written as structured exchanges with the brain
@@ -113,6 +117,8 @@ Each entry includes frontmatter such as:
 ## Notes
 
 This repository is intentionally content-heavy: a large part of the work is in content architecture, bilingual consistency, editorial structure, and readable presentation rather than in complex application logic.
+
+The current public version is already suitable for reading and sharing, but the project will continue to evolve editorially and technically.
 
 Key implementation areas include:
 - Astro content collections
