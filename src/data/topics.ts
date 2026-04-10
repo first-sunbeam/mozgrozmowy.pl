@@ -38,7 +38,7 @@ export const topicMap = {
 						description: "PDA, przeciążenie, autonomia i pytanie o terapię, która nie działa jak kolejne źródło presji.",
 					},
 					{
-						title: "Mózg na terapii",
+						title: "Mózg na terapii: co się dzieje w środku, gdy terapeuta zadaje pytanie?",
 						href: "/conversations/mozg-na-terapii",
 						kind: "rozmowa",
 						description: "Co dzieje się wewnętrznie, gdy terapeuta zadaje pytanie bez struktury i bez wektora.",
@@ -125,7 +125,7 @@ export const topicMap = {
 				title: "Myślenie autystyczne, komunikacja i double empathy",
 				items: [
 					{
-						title: "Monotropizm w wersji live: gdy mózg buduje sieć znaczeń, a świat widzi pomyłkę w słowie",
+						title: "Monotropizm w wersji live",
 						href: "/conversations/monotropizm-jako-algorytm-sensu",
 						kind: "rozmowa",
 						description: "Gdy mózg buduje sieć znaczeń, a świat słyszy tylko błąd w słowie albo dziwne skojarzenie.",
@@ -148,13 +148,13 @@ export const topicMap = {
 				title: "Relacje, tożsamość i codzienność neuroróżnorodna",
 				items: [
 					{
-						title: "Neuroróżnorodni przyjaciele i relacje",
+						title: "Neuroróżnorodni przyjaciele: Relacje, które rozumieją",
 						href: "/conversations/neuroroznorodni-przyjaciele-i-relacje",
 						kind: "rozmowa",
 						description: "O relacjach, które nie mieszczą się w społecznych definicjach, a mimo to są prawdziwe i żywe.",
 					},
 					{
-						title: "Dzień Dumy Autystycznej. Nie świętuję. Ale jestem.",
+						title: "Dzień Dumy Autystycznej: Nie świętuję. Ale jestem. I to wystarczy.",
 						href: "/conversations/dzień-dumy-autystycznej-nie-świętuję-ale-jestem",
 						kind: "rozmowa",
 						description: "Bez performowania radości, bez przymusu świętowania — samo bycie też może być wystarczające.",
@@ -272,13 +272,13 @@ export const topicMap = {
 						description: "PDA, overload, autonomy, and the question of therapy that does not become another source of pressure.",
 					},
 					{
-						title: "Brain in Therapy",
+						title: "Brain in therapy",
 						href: "/en/conversations/brain-in-therapy",
 						kind: "conversation",
 						description: "What happens internally when a therapist asks a question without structure or direction.",
 					},
 					{
-						title: "Manual Lady vs. Cartesian System",
+						title: "Conversation with the Brain: Manual Lady vs. Cartesian System",
 						href: "/en/reflections/neurodiversity-therapist-journey",
 						kind: "reflection",
 						description: "Why classic emotion labeling does not always lead to regulation, and may instead produce more exhaustion.",
@@ -348,7 +348,7 @@ export const topicMap = {
 						description: "Italian public transport, migraine, and the moment body and brain say: no further.",
 					},
 					{
-						title: "Autistic Parenting: burden management",
+						title: "Autistic Parenting: Managing Sensory Burden",
 						href: "/en/reflections/autistic-parenting-burden-management",
 						kind: "reflection",
 						description: "Knowledge does not relieve overload, but it can help recognize its beginning sooner.",
@@ -359,7 +359,7 @@ export const topicMap = {
 				title: "Autistic thinking, communication, and double empathy",
 				items: [
 					{
-						title: "Monotropism live: when the brain builds a network of meanings and the world sees a word mistake",
+						title: "Monotropism live",
 						href: "/en/conversations/monotropism-as-sense-algorithm",
 						kind: "conversation",
 						description: "When the brain builds a network of meanings and the world hears only an odd association or a wrong word.",
@@ -371,7 +371,7 @@ export const topicMap = {
 						description: "Why outward behavior is not a reliable marker of listening or processing.",
 					},
 					{
-						title: "Cognitive-Structural Logbook",
+						title: "Cognitive Structural Logbook. Off-channel slips.",
 						href: "/en/reflections/cognitive-structural-logbook-double-empathy",
 						kind: "reflection",
 						description: "A record of conversations in which analysis is misread as coldness, though it is a form of contact.",
@@ -382,7 +382,7 @@ export const topicMap = {
 				title: "Relationships, identity, and neurodivergent everyday life",
 				items: [
 					{
-						title: "Neurodivergent Friends and Relationships",
+						title: "Neurodivergent Friends: Relationships That Understand",
 						href: "/en/conversations/neurodivergent-friends-and-relationships",
 						kind: "conversation",
 						description: "Relationships that do not fit social definitions of closeness but are still deeply real.",
