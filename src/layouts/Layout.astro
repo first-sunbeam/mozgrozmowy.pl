@@ -52,6 +52,7 @@ const labels =
 				menuLabel: "Menu",
 				menuOpenLabel: "Otwórz menu",
 				menuCloseLabel: "Zamknij menu",
+				footerJobTitle: siteConfig.author.jobTitle,
 			}
 		: {
 				navConversations: "Conversations",
@@ -64,6 +65,7 @@ const labels =
 				menuLabel: "Menu",
 				menuOpenLabel: "Open menu",
 				menuCloseLabel: "Close menu",
+				footerJobTitle: "Psychologist · Behavior analyst (BCBA)",
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
@@ -230,7 +232,7 @@ const structuredDataItems = [
 		</header>
 		<slot />
 		<footer class="site-footer">
-			{siteConfig.author.name} · {siteConfig.author.jobTitle}
+			{siteConfig.author.name} · {labels.footerJobTitle}
 		</footer>
 	</body>
 </html>

@@ -6,7 +6,7 @@ export const siteConfig = {
 	defaultOgImagePath: "/web-app-manifest-512x512.png",
 	author: {
 		name: "Małgorzata Mikołajczyk",
-		jobTitle: "Psycholog · analityk zachowania (BCBA)",
+		jobTitle: "Psycholog · Analityk zachowania (BCBA)",
 	},
 	contact: {
 		emailUser: "kontakt",
