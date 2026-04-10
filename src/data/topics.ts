@@ -477,7 +477,7 @@ export const topicMap = {
 							"On time, ADHD, and how attention fades before the plan even begins to work.",
 					},
 					{
-						title: "Room of Words. An Autistic Version of Diffusion",
+						title: "The Room of Words: An Autism-Friendly Version of Diffusion",
 						href: "/en/reflections/neurodivergent-diffusion",
 						kind: "reflection",
 						description:
