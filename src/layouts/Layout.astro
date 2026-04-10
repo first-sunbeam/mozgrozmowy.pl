@@ -44,11 +44,14 @@ const labels =
 		? {
 				navConversations: "Rozmowy",
 				navReflections: "Refleksje",
-				navTopicMap: "Mapa tematow",
+				navTopicMap: "Mapa tematów",
 				navAbout: "Kontekst",
-				homeAriaLabel: "Strona glowna",
+				homeAriaLabel: "Strona główna",
 				mainNavAriaLabel: "Główna nawigacja",
 				switchLabel: "EN",
+				menuLabel: "Menu",
+				menuOpenLabel: "Otwórz menu",
+				menuCloseLabel: "Zamknij menu",
 			}
 		: {
 				navConversations: "Conversations",
@@ -58,20 +61,59 @@ const labels =
 				homeAriaLabel: "Home page",
 				mainNavAriaLabel: "Main navigation",
 				switchLabel: "PL",
+				menuLabel: "Menu",
+				menuOpenLabel: "Open menu",
+				menuCloseLabel: "Close menu",
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
-const canonicalUrl = Astro.site ? new URL(pathname, Astro.site).href : undefined;
+const canonicalUrl = Astro.site
+	? new URL(pathname, Astro.site).href
+	: undefined;
 const plPath = lang === "pl" ? pathname : switchHref;
 const enPath = lang === "en" ? pathname : switchHref;
-const plAlternateUrl = Astro.site ? new URL(plPath, Astro.site).href : undefined;
-const enAlternateUrl = Astro.site ? new URL(enPath, Astro.site).href : undefined;
+const plAlternateUrl = Astro.site
+	? new URL(plPath, Astro.site).href
+	: undefined;
+const enAlternateUrl = Astro.site
+	? new URL(enPath, Astro.site).href
+	: undefined;
 const xDefaultUrl = plAlternateUrl;
 const ogImageUrl = Astro.site
 	? new URL(siteConfig.defaultOgImagePath, Astro.site).href
 	: undefined;
 const ogLocale = lang === "pl" ? "pl_PL" : "en_US";
 const ogAlternateLocale = lang === "pl" ? "en_US" : "pl_PL";
+const navItems = [
+	{
+		label: labels.navConversations,
+		href: toLocalizedPath("/conversations", lang),
+		active:
+			pathname === "/conversations" ||
+			pathname.startsWith("/conversations/") ||
+			pathname === "/en/conversations" ||
+			pathname.startsWith("/en/conversations/"),
+	},
+	{
+		label: labels.navReflections,
+		href: toLocalizedPath("/reflections", lang),
+		active:
+			pathname === "/reflections" ||
+			pathname.startsWith("/reflections/") ||
+			pathname === "/en/reflections" ||
+			pathname.startsWith("/en/reflections/"),
+	},
+	{
+		label: labels.navTopicMap,
+		href: toLocalizedPath("/topic-map", lang),
+		active: pathname === "/topic-map" || pathname === "/en/topic-map",
+	},
+	{
+		label: labels.navAbout,
+		href: toLocalizedPath("/about", lang),
+		active: pathname === "/about" || pathname === "/en/about",
+	},
+];
 const websiteStructuredData = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
@@ -124,75 +166,66 @@ const structuredDataItems = [
 		<meta name="twitter:description" content={description} />
 		{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-		{plAlternateUrl && <link rel="alternate" hreflang="pl" href={plAlternateUrl} />}
-		{enAlternateUrl && <link rel="alternate" hreflang="en" href={enAlternateUrl} />}
-		{xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
-		{structuredDataItems.map((item) => (
-			<script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
-		))}
+		{
+			plAlternateUrl && (
+				<link rel="alternate" hreflang="pl" href={plAlternateUrl} />
+			)
+		}
+		{
+			enAlternateUrl && (
+				<link rel="alternate" hreflang="en" href={enAlternateUrl} />
+			)
+		}
+		{
+			xDefaultUrl && (
+				<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+			)
+		}
+		{
+			structuredDataItems.map((item) => (
+				<script
+					is:inline
+					type="application/ld+json"
+					set:html={JSON.stringify(item)}
+				/>
+			))
+		}
 		<title>{title}</title>
 	</head>
 	<body>
 		<header class="site-header">
-			<div class="site-header__inner">
-				<a
-					class="site-brand"
-					href={toLocalizedPath("/", lang)}
-					aria-label={labels.homeAriaLabel}
-				>
-					<Image src={logo} alt="Mózg Rozmowy" width={180} loading="eager" />
-				</a>
-
-				<nav class="site-nav" aria-label={labels.mainNavAriaLabel}>
-					<a
-						class:list={{
-							active:
-								pathname === "/conversations" ||
-								pathname.startsWith("/conversations/") ||
-								pathname === "/en/conversations" ||
-								pathname.startsWith("/en/conversations/"),
-						}}
-						href={toLocalizedPath("/conversations", lang)}
-					>
-						{labels.navConversations}
+			<div class="site-header__inner" data-header>
+				<div class="site-header__top">
+					<a class="site-brand" href={toLocalizedPath("/", lang)}>
+						<Image src={logo} alt="Mózg Rozmowy" width={180} loading="eager" />
 					</a>
-					<a
-						class:list={{
-							active:
-								pathname === "/reflections" ||
-								pathname.startsWith("/reflections/") ||
-								pathname === "/en/reflections" ||
-								pathname.startsWith("/en/reflections/"),
-						}}
-						href={toLocalizedPath("/reflections", lang)}
-					>
-						{labels.navReflections}
-					</a>
-					<a
-						class:list={{
-							active: pathname === "/topic-map" || pathname === "/en/topic-map",
-						}}
-						href={toLocalizedPath("/topic-map", lang)}
-					>
-						{labels.navTopicMap}
-					</a>
-					<a
-						class:list={{
-							active: pathname === "/about" || pathname === "/en/about",
-						}}
-						href={toLocalizedPath("/about", lang)}
-					>
-						{labels.navAbout}
-					</a>
-				</nav>
-
-				<a
-					class="site-lang-switch"
-					href={switchHref}
-					hreflang={lang === "pl" ? "en" : "pl"}
-				>
-					{labels.switchLabel}
-				</a>
+					<div>
+						<details class="site-nav-details">
+							<summary class="site-nav-toggle">
+								<span>{labels.menuLabel}</span>
+								<span class="site-nav-toggle__icon" aria-hidden="true"></span>
+							</summary>
+						</details>
+						<nav
+							id="site-nav-panel"
+							class="site-nav"
+							aria-label={labels.mainNavAriaLabel}
+						>
+							{
+								navItems.map((item) => (
+									<a class:list={{ active: item.active }} href={item.href}>
+										{item.label}
+									</a>
+								))
+							}
+						</nav>
+					</div>
+					<div class="site-header__controls">
+						<a class="site-lang-switch" href={switchHref}>
+							{labels.switchLabel}
+						</a>
+					</div>
+				</div>
 			</div>
 		</header>
 		<slot />
