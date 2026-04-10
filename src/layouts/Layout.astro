@@ -53,6 +53,7 @@ const labels =
 				menuOpenLabel: "Otwórz menu",
 				menuCloseLabel: "Zamknij menu",
 				footerJobTitle: siteConfig.author.jobTitle,
+				footerPrivacy: "Polityka prywatności",
 			}
 		: {
 				navConversations: "Conversations",
@@ -66,6 +67,7 @@ const labels =
 				menuOpenLabel: "Open menu",
 				menuCloseLabel: "Close menu",
 				footerJobTitle: "Psychologist · Behavior analyst (BCBA)",
+				footerPrivacy: "Privacy policy",
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
@@ -232,7 +234,7 @@ const structuredDataItems = [
 		</header>
 		<slot />
 		<footer class="site-footer">
-			{siteConfig.author.name} · {labels.footerJobTitle}
+			{siteConfig.author.name} · {labels.footerJobTitle} · <a href={toLocalizedPath("/privacy-policy", lang)}>{labels.footerPrivacy}</a>
 		</footer>
 	</body>
 </html>
