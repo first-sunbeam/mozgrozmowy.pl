@@ -21,7 +21,7 @@ export const topicMap = {
 				description: "Mapa czterech stanów kryzysu, która porządkuje język przeciążenia i wyjaśnia, że to nie lenistwo.",
 			},
 			{
-				title: "Monotropizm jako algorytm sensu",
+				title: "Monotropizm w wersji live: gdy mózg buduje sieć znaczeń, a świat widzi pomyłkę w słowie",
 				href: "/conversations/monotropizm-jako-algorytm-sensu",
 				kind: "rozmowa",
 				description: "Tekst o autystycznym myśleniu, sieci znaczeń i tym, dlaczego świat często widzi tylko pomyłkę w słowie.",
@@ -56,7 +56,7 @@ export const topicMap = {
 						description: "Manifest o zderzeniu stylów poznawczych: struktura kontra metafora, logika kontra intuicja.",
 					},
 					{
-						title: "ND-terapia w trybie analityczno-strukturalnym",
+						title: "Terapia neuroróżnorodna w trybie analityczno-strukturalnym",
 						href: "/conversations/nd-terapia-w-trybie-analityczno-strukturalnym",
 						kind: "rozmowa",
 						description: "O tym, jak analiza i rozdzielanie warstw informacji mogą być formą regulacji, a nie unikaniem kontaktu.",
@@ -125,7 +125,7 @@ export const topicMap = {
 				title: "Myślenie autystyczne, komunikacja i double empathy",
 				items: [
 					{
-						title: "Monotropizm jako algorytm sensu",
+						title: "Monotropizm w wersji live: gdy mózg buduje sieć znaczeń, a świat widzi pomyłkę w słowie",
 						href: "/conversations/monotropizm-jako-algorytm-sensu",
 						kind: "rozmowa",
 						description: "Gdy mózg buduje sieć znaczeń, a świat słyszy tylko błąd w słowie albo dziwne skojarzenie.",
@@ -255,7 +255,7 @@ export const topicMap = {
 				description: "A map of four crisis states that gives language to overload and shows this is not laziness.",
 			},
 			{
-				title: "Monotropism as a Sense Algorithm",
+				title: "Monotropism live: when the brain builds a network of meanings and the world sees a word mistake",
 				href: "/en/conversations/monotropism-as-sense-algorithm",
 				kind: "conversation",
 				description: "A text about autistic meaning-making and why the world often sees only a wrong word.",
@@ -290,7 +290,7 @@ export const topicMap = {
 						description: "A manifesto about the clash of cognitive styles: structure versus metaphor, logic versus intuition.",
 					},
 					{
-						title: "ND Therapy in an Analytical-Structural Mode",
+						title: "Neurodivergent Therapy in an Analytical-Structural Mode",
 						href: "/en/conversations/nd-therapy-in-analytical-structural-mode",
 						kind: "conversation",
 						description: "On analysis and layer separation as a form of regulation rather than avoidance.",
@@ -359,7 +359,7 @@ export const topicMap = {
 				title: "Autistic thinking, communication, and double empathy",
 				items: [
 					{
-						title: "Monotropism as a Sense Algorithm",
+						title: "Monotropism live: when the brain builds a network of meanings and the world sees a word mistake",
 						href: "/en/conversations/monotropism-as-sense-algorithm",
 						kind: "conversation",
 						description: "When the brain builds a network of meanings and the world hears only an odd association or a wrong word.",
