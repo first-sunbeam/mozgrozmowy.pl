@@ -15,12 +15,14 @@ interface Props {
 	structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const toLocalizedPath = (basePath: string, currentLang: string) =>
-	currentLang === "pl"
-		? basePath
-		: basePath === "/"
-			? "/en/"
-			: `/en${basePath}`;
+const toLocalizedPath = (basePath: string, currentLang: string) => {
+	if (basePath === "/") {
+		return currentLang === "pl" ? "/" : "/en/";
+	}
+
+	const normalizedBasePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
+	return currentLang === "pl" ? normalizedBasePath : `/en${normalizedBasePath}`;
+};
 
 const toAlternateLanguagePath = (currentPath: string, currentLang: string) => {
 	if (currentLang === "pl") {
@@ -28,6 +30,14 @@ const toAlternateLanguagePath = (currentPath: string, currentLang: string) => {
 	}
 
 	return currentPath === "/en/" ? "/" : currentPath.replace(/^\/en/, "") || "/";
+};
+
+const withTrailingSlash = (path: string) => {
+	if (path === "/") {
+		return path;
+	}
+
+	return path.endsWith("/") ? path : `${path}/`;
 };
 
 const {
@@ -73,11 +83,17 @@ const labels =
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
+const normalizedPathname = withTrailingSlash(pathname);
+const normalizedSwitchHref = withTrailingSlash(switchHref);
+const pathnameForMatching =
+	normalizedPathname !== "/" && normalizedPathname.endsWith("/")
+		? normalizedPathname.slice(0, -1)
+		: normalizedPathname;
 const canonicalUrl = Astro.site
-	? new URL(pathname, Astro.site).href
+	? new URL(normalizedPathname, Astro.site).href
 	: undefined;
-const plPath = lang === "pl" ? pathname : switchHref;
-const enPath = lang === "en" ? pathname : switchHref;
+const plPath = lang === "pl" ? normalizedPathname : normalizedSwitchHref;
+const enPath = lang === "en" ? normalizedPathname : normalizedSwitchHref;
 const plAlternateUrl = Astro.site
 	? new URL(plPath, Astro.site).href
 	: undefined;
@@ -95,38 +111,40 @@ const navItems = [
 		label: labels.navConversations,
 		href: toLocalizedPath("/conversations", lang),
 		active:
-			pathname === "/conversations" ||
-			pathname.startsWith("/conversations/") ||
-			pathname === "/en/conversations" ||
-			pathname.startsWith("/en/conversations/"),
+			pathnameForMatching === "/conversations" ||
+			pathnameForMatching.startsWith("/conversations/") ||
+			pathnameForMatching === "/en/conversations" ||
+			pathnameForMatching.startsWith("/en/conversations/"),
 	},
 	{
 		label: labels.navReflections,
 		href: toLocalizedPath("/reflections", lang),
 		active:
-			pathname === "/reflections" ||
-			pathname.startsWith("/reflections/") ||
-			pathname === "/en/reflections" ||
-			pathname.startsWith("/en/reflections/"),
+			pathnameForMatching === "/reflections" ||
+			pathnameForMatching.startsWith("/reflections/") ||
+			pathnameForMatching === "/en/reflections" ||
+			pathnameForMatching.startsWith("/en/reflections/"),
 	},
 	{
 		label: labels.navTags,
 		href: toLocalizedPath("/tags", lang),
 		active:
-			pathname === "/tags" ||
-			pathname.startsWith("/tags/") ||
-			pathname === "/en/tags" ||
-			pathname.startsWith("/en/tags/"),
+			pathnameForMatching === "/tags" ||
+			pathnameForMatching.startsWith("/tags/") ||
+			pathnameForMatching === "/en/tags" ||
+			pathnameForMatching.startsWith("/en/tags/"),
 	},
 	{
 		label: labels.navTopicMap,
 		href: toLocalizedPath("/topic-map", lang),
-		active: pathname === "/topic-map" || pathname === "/en/topic-map",
+		active:
+			pathnameForMatching === "/topic-map" ||
+			pathnameForMatching === "/en/topic-map",
 	},
 	{
 		label: labels.navAbout,
 		href: toLocalizedPath("/about", lang),
-		active: pathname === "/about" || pathname === "/en/about",
+		active: pathnameForMatching === "/about" || pathnameForMatching === "/en/about",
 	},
 ];
 const websiteStructuredData = {

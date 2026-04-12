@@ -58,7 +58,7 @@ export function slugifyTag(tag: string) {
 
 export function getTagPath(lang: Lang, tag: string) {
 	const slug = slugifyTag(tag);
-	return lang === "pl" ? `/tags/${slug}` : `/en/tags/${slug}`;
+	return lang === "pl" ? `/tags/${slug}/` : `/en/tags/${slug}/`;
 }
 
 export function getTagBySlug(lang: Lang, slug: string) {

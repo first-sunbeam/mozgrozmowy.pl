@@ -15,7 +15,7 @@ export const ui = {
 		conversations: {
 			title: "Wszystkie rozmowy | mozgrozmowy.pl",
 			description: "Wszystkie rozmowy z serii.",
-			pathname: "/conversations",
+			pathname: "/conversations/",
 			kicker: "Rozmowy",
 			heading: "Wszystkie rozmowy",
 			intro: "Pełny widok serii rozmów zebrany w jednej, czytelnej liście.",
@@ -23,7 +23,7 @@ export const ui = {
 		reflections: {
 			title: "Wszystkie refleksje | mozgrozmowy.pl",
 			description: "Wszystkie refleksje na stronie.",
-			pathname: "/reflections",
+			pathname: "/reflections/",
 			kicker: "Refleksje",
 			heading: "Wszystkie refleksje",
 			intro: "Pełny widok refleksji zebrany w jednej, czytelnej liście.",
@@ -31,7 +31,7 @@ export const ui = {
 		topicMap: {
 			title: "Mapa tematów | mozgrozmowy.pl",
 			description: "Tematyczna mapa treści na stronie.",
-			pathname: "/topic-map",
+			pathname: "/topic-map/",
 			kicker: "Mapa tematów",
 			heading: "Tematyczna mapa treści",
 			intro:
@@ -40,7 +40,7 @@ export const ui = {
 		tags: {
 			title: "Wszystkie tagi | mozgrozmowy.pl",
 			description: "Wszystkie tagi użyte na stronie.",
-			pathname: "/tags",
+			pathname: "/tags/",
 			kicker: "Tagi",
 			heading: "Wszystkie tagi",
 			intro: "Przeglądaj treści według tematów. Każdy tag prowadzi do strony z powiązanymi wpisami.",
@@ -49,7 +49,7 @@ export const ui = {
 		about: {
 			title: "Kontekst | mozgrozmowy.pl",
 			description: "Strona z kontekstem autorskim.",
-			pathname: "/about",
+			pathname: "/about/",
 			kicker: "O mnie",
 			heading: "Kontekst",
 			intro:
@@ -95,7 +95,7 @@ export const ui = {
 		conversations: {
 			title: "All conversations | mozgrozmowy.pl",
 			description: "All conversations from the series.",
-			pathname: "/en/conversations",
+			pathname: "/en/conversations/",
 			kicker: "Conversations",
 			heading: "All conversations",
 			intro: "A complete view of the conversation series, kept in one clean list.",
@@ -103,7 +103,7 @@ export const ui = {
 		reflections: {
 			title: "All reflections | mozgrozmowy.pl",
 			description: "All reflections on the site.",
-			pathname: "/en/reflections",
+			pathname: "/en/reflections/",
 			kicker: "Reflections",
 			heading: "All reflections",
 			intro: "A complete view of the reflections, gathered in one clean list.",
@@ -111,7 +111,7 @@ export const ui = {
 		topicMap: {
 			title: "Topic map | mozgrozmowy.pl",
 			description: "Thematic map of the site's content.",
-			pathname: "/en/topic-map",
+			pathname: "/en/topic-map/",
 			kicker: "Topic map",
 			heading: "Thematic map of the content",
 			intro:
@@ -120,7 +120,7 @@ export const ui = {
 		tags: {
 			title: "All tags | mozgrozmowy.pl",
 			description: "All tags used across the site.",
-			pathname: "/en/tags",
+			pathname: "/en/tags/",
 			kicker: "Tags",
 			heading: "All tags",
 			intro: "Browse the site by topic. Each tag leads to a page with related entries.",
@@ -129,7 +129,7 @@ export const ui = {
 		about: {
 			title: "About | mozgrozmowy.pl",
 			description: "Author context page.",
-			pathname: "/en/about",
+			pathname: "/en/about/",
 			kicker: "About",
 			heading: "Context",
 			intro:

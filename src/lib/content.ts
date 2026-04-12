@@ -28,10 +28,10 @@ export type ArticleEntry =
 	| CollectionEntry<"reflections">;
 
 const toConversationPath = (lang: Lang, slug: string) =>
-	lang === "pl" ? `/conversations/${slug}` : `/en/conversations/${slug}`;
+	lang === "pl" ? `/conversations/${slug}/` : `/en/conversations/${slug}/`;
 
 const toReflectionPath = (lang: Lang, slug: string) =>
-	lang === "pl" ? `/reflections/${slug}` : `/en/reflections/${slug}`;
+	lang === "pl" ? `/reflections/${slug}/` : `/en/reflections/${slug}/`;
 
 function sortByPublishedAtDesc<T extends { data: { publishedAt: Date } }>(entries: T[]) {
 	return entries.sort(
