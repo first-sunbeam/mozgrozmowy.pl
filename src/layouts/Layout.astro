@@ -44,6 +44,7 @@ const labels =
 		? {
 				navConversations: "Rozmowy",
 				navReflections: "Refleksje",
+				navTags: "Tagi",
 				navTopicMap: "Mapa tematów",
 				navAbout: "Kontekst",
 				homeAriaLabel: "Strona główna",
@@ -58,6 +59,7 @@ const labels =
 		: {
 				navConversations: "Conversations",
 				navReflections: "Reflections",
+				navTags: "Tags",
 				navTopicMap: "Topic map",
 				navAbout: "Context",
 				homeAriaLabel: "Home page",
@@ -106,6 +108,15 @@ const navItems = [
 			pathname.startsWith("/reflections/") ||
 			pathname === "/en/reflections" ||
 			pathname.startsWith("/en/reflections/"),
+	},
+	{
+		label: labels.navTags,
+		href: toLocalizedPath("/tags", lang),
+		active:
+			pathname === "/tags" ||
+			pathname.startsWith("/tags/") ||
+			pathname === "/en/tags" ||
+			pathname.startsWith("/en/tags/"),
 	},
 	{
 		label: labels.navTopicMap,

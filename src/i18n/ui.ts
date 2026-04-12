@@ -3,8 +3,8 @@ export type Lang = "pl" | "en";
 export const ui = {
 	pl: {
 		home: {
-			title: "Najnowsze rozmowy | mozgrozmowy.pl",
-			description: "Najnowsze rozmowy z serii Rozmowy z Mózgiem.",
+			title: "Rozmowy o terapii, przeciążeniu i wsparciu | mozgrozmowy.pl",
+			description: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia. Teksty o neuroróżnorodności, regulacji i codziennym funkcjonowaniu.",
 			pathname: "/",
 			kicker: "Najnowsze rozmowy",
 			heading:
@@ -37,6 +37,15 @@ export const ui = {
 			intro:
 				"Pogrupowany widok wątków obecnych na stronie, uporządkowany według tematów, a nie chronologii.",
 		},
+		tags: {
+			title: "Wszystkie tagi | mozgrozmowy.pl",
+			description: "Wszystkie tagi użyte na stronie.",
+			pathname: "/tags",
+			kicker: "Tagi",
+			heading: "Wszystkie tagi",
+			intro: "Przeglądaj treści według tematów. Każdy tag prowadzi do strony z powiązanymi wpisami.",
+			countSuffix: "wpisów",
+		},
 		about: {
 			title: "Kontekst | mozgrozmowy.pl",
 			description: "Strona z kontekstem autorskim.",
@@ -58,6 +67,10 @@ export const ui = {
 			publishedLabel: "Opublikowano",
 			updatedLabel: "Aktualizacja",
 			tagsLabel: "Tagi",
+			previousConversationLabel: "← Poprzednia rozmowa",
+			nextConversationLabel: "Następna rozmowa →",
+			previousReflectionLabel: "← Poprzednia refleksja",
+			nextReflectionLabel: "Następna refleksja →",
 		},
 		reflectionArticle: {
 			kicker: "Refleksja",
@@ -70,8 +83,8 @@ export const ui = {
 	},
 	en: {
 		home: {
-			title: "Latest conversations | mozgrozmowy.pl",
-			description: "Latest conversations from the series.",
+			title: "Conversations about therapy, overload, and support | mozgrozmowy.pl",
+			description: "Calm, readable conversations about therapy, overload, and systems of support. Writing on neurodivergence, regulation, and everyday functioning.",
 			pathname: "/en/",
 			kicker: "Latest conversations",
 			heading:
@@ -104,6 +117,15 @@ export const ui = {
 			intro:
 				"A grouped view of the ideas running through the site, organized by theme instead of chronology.",
 		},
+		tags: {
+			title: "All tags | mozgrozmowy.pl",
+			description: "All tags used across the site.",
+			pathname: "/en/tags",
+			kicker: "Tags",
+			heading: "All tags",
+			intro: "Browse the site by topic. Each tag leads to a page with related entries.",
+			countSuffix: "entries",
+		},
 		about: {
 			title: "About | mozgrozmowy.pl",
 			description: "Author context page.",
@@ -125,6 +147,10 @@ export const ui = {
 			publishedLabel: "Published",
 			updatedLabel: "Updated",
 			tagsLabel: "Tags",
+			previousConversationLabel: "← Previous conversation",
+			nextConversationLabel: "Next conversation →",
+			previousReflectionLabel: "← Previous reflection",
+			nextReflectionLabel: "Next reflection →",
 		},
 		reflectionArticle: {
 			kicker: "Reflection",

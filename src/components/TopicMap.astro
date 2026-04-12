@@ -22,11 +22,11 @@ const { groups, featured = [], featuredTitle } = Astro.props;
 
 <div class="topic-map-layout">
 	{featured.length > 0 && (
-		<section class="topic-featured">
+		<section class="topic-featured surface-card">
 			<h2>{featuredTitle}</h2>
 			<div class="topic-featured__grid">
 				{featured.map((item) => (
-					<article class="topic-featured__card">
+					<article class="topic-featured__card surface-card">
 						<p class="topic-featured__meta">{item.kind}</p>
 						<h3><a href={item.href}>{item.title}</a></h3>
 						{item.description && <p>{item.description}</p>}
@@ -38,7 +38,7 @@ const { groups, featured = [], featuredTitle } = Astro.props;
 
 	<div class="topic-map">
 		{groups.map((group) => (
-			<section class="topic-group">
+			<section class="topic-group surface-card">
 				<h2>{group.title}</h2>
 				<ul>
 					{group.items.map((item) => (
@@ -65,9 +65,7 @@ const { groups, featured = [], featuredTitle } = Astro.props;
 	.topic-featured,
 	.topic-group {
 		padding: 1.5rem;
-		border: 1px solid var(--border-light);
 		border-radius: 20px;
-		box-shadow: var(--shadow-soft);
 		margin-bottom: 1rem;
 	}
 
@@ -94,7 +92,6 @@ const { groups, featured = [], featuredTitle } = Astro.props;
 
 	.topic-featured__card {
 		padding: 1rem;
-		border: 1px solid var(--border-light);
 		border-radius: 16px;
 		background: color-mix(in srgb, var(--bg-main) 84%, var(--color-bg-light) 16%);
 	}

@@ -279,9 +279,6 @@ button:hover,
 	.site-nav-details[open] ~ .site-nav {
 		display: flex;
 	}
-	.site-header__inner {
-		padding: 0.7rem 0;
-	}
 
 	.site-nav-toggle {
 		display: inline-flex;
@@ -302,18 +299,9 @@ button:hover,
 		border-radius: 16px;
 		background: color-mix(in srgb, var(--color-white) 10%, transparent 90%);
 	}
-
-	.site-footer__grid {
-		grid-template-columns: 1fr;
-		gap: 1.2rem;
-	}
 }
 
 @media (min-width: 721px) {
-	.site-header__inner {
-		padding: 0.7rem 0;
-	}
-
 	.site-nav-toggle {
 		display: none;
 	}
@@ -332,10 +320,6 @@ button:hover,
 	.site-lang-switch {
 		padding: 0.45rem 0.72rem;
 		font-size: 0.92rem;
-	}
-
-	.site-footer__inner {
-		padding-top: 1.25rem;
 	}
 }
 

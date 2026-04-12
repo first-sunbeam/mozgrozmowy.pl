@@ -1,0 +1,108 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getTagExpansion } from "../../data/tags";
+import "../../styles/content-pages.css";
+import type { Lang } from "../../i18n/ui";
+import type { TagOverviewItem } from "../../lib/content";
+
+interface Props {
+	lang: Lang;
+	pathname: string;
+	alternatePath: string;
+	title: string;
+	description: string;
+	kicker: string;
+	heading: string;
+	intro: string;
+	items: TagOverviewItem[];
+	countSuffix: string;
+}
+
+const {
+	lang,
+	pathname,
+	alternatePath,
+	title,
+	description,
+	kicker,
+	heading,
+	intro,
+	items,
+	countSuffix,
+} = Astro.props;
+---
+
+<Layout title={title} description={description} lang={lang} pathname={pathname} alternatePath={alternatePath}>
+	<main class="page-shell">
+		<section class="page-intro page-intro--alt">
+			<p class="page-kicker">{kicker}</p>
+			<h1>{heading}</h1>
+			<p>{intro}</p>
+		</section>
+
+		<ul class="tag-grid" aria-label={heading}>
+			{items.map((item) => {
+				const expansion = getTagExpansion(lang, item.tag);
+
+				return (
+					<li>
+						<a class="tag-card surface-card" href={item.href}>
+							<span class="tag-card__name">
+								{expansion ? (
+									<abbr class="tag-card__abbr" title={expansion} aria-label={expansion}>{item.tag}</abbr>
+								) : (
+									item.tag
+								)}
+							</span>
+							<span class="tag-card__count">{item.count} {countSuffix}</span>
+						</a>
+					</li>
+				);
+			})}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	.tag-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+
+	.tag-card {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.8rem;
+		padding: 1rem 1.1rem;
+		border-radius: 18px;
+		text-decoration: none;
+		color: var(--color-text-primary);
+		transition: transform 140ms ease, border-color 140ms ease;
+	}
+
+	.tag-card:hover {
+		transform: translateY(-1px);
+		border-color: color-mix(in srgb, var(--color-primary) 24%, var(--border-light) 76%);
+	}
+
+	.tag-card__name {
+		font-weight: 700;
+		line-height: 1.35;
+	}
+
+	.tag-card__abbr {
+		text-decoration: none;
+		border: 0;
+	}
+
+	.tag-card__count {
+		color: var(--color-text-secondary);
+		font-size: 0.92rem;
+		white-space: nowrap;
+	}
+</style>

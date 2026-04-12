@@ -12,6 +12,17 @@ export interface ContentListItem {
 export interface ConversationListItem extends ContentListItem {}
 export interface ReflectionListItem extends ContentListItem {}
 
+export interface TagOverviewItem {
+	tag: string;
+	href: string;
+	count: number;
+}
+
+export interface ArticleNavItem {
+	title: string;
+	href: string;
+}
+
 export type ArticleEntry =
 	| CollectionEntry<"conversations">
 	| CollectionEntry<"reflections">;
@@ -63,12 +74,14 @@ export async function getConversationStaticPaths(lang: Lang) {
 		allConversations.filter((entry) => entry.data.lang === lang),
 	);
 
-	return conversations.map((entry) => {
+	return conversations.map((entry, index) => {
 		const alternateEntry = allConversations.find(
 			(candidate) =>
 				candidate.data.translationKey === entry.data.translationKey &&
 				candidate.data.lang !== entry.data.lang,
 		);
+		const previousEntry = conversations[index - 1];
+		const nextEntry = conversations[index + 1];
 
 		return {
 			params: { slug: entry.data.slug },
@@ -76,6 +89,18 @@ export async function getConversationStaticPaths(lang: Lang) {
 				entry,
 				alternatePath: alternateEntry
 					? getConversationPath(alternateEntry.data.lang, alternateEntry.data.slug)
+					: undefined,
+				previousEntry: previousEntry
+					? {
+							title: previousEntry.data.title,
+							href: getConversationPath(previousEntry.data.lang, previousEntry.data.slug),
+						}
+					: undefined,
+				nextEntry: nextEntry
+					? {
+							title: nextEntry.data.title,
+							href: getConversationPath(nextEntry.data.lang, nextEntry.data.slug),
+						}
 					: undefined,
 			},
 		};
@@ -88,12 +113,14 @@ export async function getReflectionStaticPaths(lang: Lang) {
 		allReflections.filter((entry) => entry.data.lang === lang),
 	);
 
-	return reflections.map((entry) => {
+	return reflections.map((entry, index) => {
 		const alternateEntry = allReflections.find(
 			(candidate) =>
 				candidate.data.translationKey === entry.data.translationKey &&
 				candidate.data.lang !== entry.data.lang,
 		);
+		const previousEntry = reflections[index - 1];
+		const nextEntry = reflections[index + 1];
 
 		return {
 			params: { slug: entry.data.slug },
@@ -101,6 +128,18 @@ export async function getReflectionStaticPaths(lang: Lang) {
 				entry,
 				alternatePath: alternateEntry
 					? getReflectionPath(alternateEntry.data.lang, alternateEntry.data.slug)
+					: undefined,
+				previousEntry: previousEntry
+					? {
+							title: previousEntry.data.title,
+							href: getReflectionPath(previousEntry.data.lang, previousEntry.data.slug),
+						}
+					: undefined,
+				nextEntry: nextEntry
+					? {
+							title: nextEntry.data.title,
+							href: getReflectionPath(nextEntry.data.lang, nextEntry.data.slug),
+						}
 					: undefined,
 			},
 		};
@@ -159,5 +198,24 @@ export async function getTagStaticPaths(lang: Lang) {
 			},
 		};
 	});
+}
+
+export async function getTagOverviewItems(lang: Lang): Promise<TagOverviewItem[]> {
+	const articles = await getPublishedArticles(lang);
+	const counts = new Map<string, number>();
+
+	for (const entry of articles) {
+		for (const tag of entry.data.topics) {
+			counts.set(tag, (counts.get(tag) ?? 0) + 1);
+		}
+	}
+
+	return [...counts.entries()]
+		.map(([tag, count]) => ({
+			tag,
+			href: getTagPath(lang, tag),
+			count,
+		}))
+		.sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, lang));
 }
 

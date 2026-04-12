@@ -5,7 +5,7 @@ import { getTagPath } from "../../data/tags";
 import { siteConfig } from "../../data/site";
 import { ui } from "../../i18n/ui";
 import type { Lang } from "../../i18n/ui";
-import type { ArticleEntry } from "../../lib/content";
+import type { ArticleEntry, ArticleNavItem } from "../../lib/content";
 
 interface Props {
 	entry: ArticleEntry;
@@ -13,10 +13,25 @@ interface Props {
 	pathname: string;
 	alternatePath?: string;
 	kicker: string;
+	previousEntry?: ArticleNavItem;
+	nextEntry?: ArticleNavItem;
+	previousLabel?: string;
+	nextLabel?: string;
 	Content: any;
 }
 
-const { entry, lang, pathname, alternatePath, kicker, Content } = Astro.props;
+const {
+	entry,
+	lang,
+	pathname,
+	alternatePath,
+	kicker,
+	previousEntry,
+	nextEntry,
+	previousLabel,
+	nextLabel,
+	Content,
+} = Astro.props;
 
 const articleUrl = Astro.site ? new URL(pathname, Astro.site).href : undefined;
 const publisherLogoUrl = Astro.site
@@ -70,7 +85,7 @@ const articleStructuredData = {
 	structuredData={articleStructuredData}
 >
 	<main class="page-shell">
-		<article class="article-shell">
+		<article class="article-shell surface-card">
 			<p class="page-kicker">{kicker}</p>
 			<h1>{entry.data.title}</h1>
 			<p class="article-meta">
@@ -98,6 +113,26 @@ const articleStructuredData = {
 			<div class="article-content">
 				<Content />
 			</div>
+			{(previousEntry || nextEntry) && (
+				<nav class="article-pagination" aria-label="Article pagination">
+					{previousEntry ? (
+						<a class="article-pagination__link surface-card" href={previousEntry.href}>
+							<span class="article-pagination__label">{previousLabel}</span>
+							<span class="article-pagination__title">{previousEntry.title}</span>
+						</a>
+					) : (
+						<span></span>
+					)}
+					{nextEntry ? (
+						<a class="article-pagination__link article-pagination__link--next surface-card" href={nextEntry.href}>
+							<span class="article-pagination__label">{nextLabel}</span>
+							<span class="article-pagination__title">{nextEntry.title}</span>
+						</a>
+					) : (
+						<span></span>
+					)}
+				</nav>
+			)}
 		</article>
 	</main>
 </Layout>
@@ -105,10 +140,7 @@ const articleStructuredData = {
 <style>
 	.article-shell {
 		padding: 1.75rem;
-		border: 1px solid var(--border-light);
 		border-radius: 24px;
-		background: var(--color-white);
-		box-shadow: var(--shadow-soft);
 		max-width: 70ch;
 		margin-left: auto;
 		margin-right: auto;
@@ -182,5 +214,57 @@ const articleStructuredData = {
 	.article-content :global(h3) {
 		font-size: clamp(1rem, 1.7vw, 1.16rem);
 		line-height: 1.25;
+	}
+
+	.article-pagination {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border-light);
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.article-pagination__link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 1rem;
+		border-radius: 18px;
+		background: color-mix(in srgb, var(--bg-main) 84%, var(--color-bg-light) 16%);
+		text-decoration: none;
+		color: var(--color-text-primary);
+		min-height: 100%;
+	}
+
+	.article-pagination__link--next {
+		text-align: right;
+	}
+
+	.article-pagination__label {
+		font-size: 0.82rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		font-weight: 700;
+	}
+
+	.article-pagination__title {
+		font-weight: 600;
+		line-height: 1.45;
+	}
+
+	.article-pagination__link:hover .article-pagination__title {
+		color: var(--color-primary-hover);
+	}
+
+	@media (max-width: 720px) {
+		.article-pagination {
+			grid-template-columns: 1fr;
+		}
+
+		.article-pagination__link--next {
+			text-align: left;
+		}
 	}
 </style>

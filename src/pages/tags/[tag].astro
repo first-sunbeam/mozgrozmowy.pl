@@ -1,5 +1,6 @@
 ---
 import ConversationOverviewPage from "../../components/pages/ConversationOverviewPage.astro";
+import { getTagExplanation, getTagExpansion } from "../../data/tags";
 import { ui } from "../../i18n/ui";
 import { getTagStaticPaths } from "../../lib/content";
 
@@ -9,17 +10,26 @@ export async function getStaticPaths() {
 
 const { tag, items, alternatePath } = Astro.props;
 const labels = ui.pl.tagPage;
+const expansion = getTagExpansion("pl", tag);
+const explanation = getTagExplanation("pl", tag);
+const displayTag = expansion ? `${tag} (${expansion})` : tag;
+const intro = explanation
+	? `${labels.introPrefix} „${tag}”. ${explanation}`
+	: `${labels.introPrefix} „${tag}”.`;
+const description = explanation
+	? `${displayTag}. ${items.length} powiązanych wpisów. ${explanation}`
+	: `${labels.introPrefix} „${tag}”. ${items.length} powiązanych wpisów.`;
 ---
 
 <ConversationOverviewPage
 	lang="pl"
 	pathname={`/tags/${Astro.params.tag}`}
 	alternatePath={alternatePath}
-	title={`${labels.title}: ${tag} | mozgrozmowy.pl`}
-	description={`${labels.introPrefix} „${tag}”.`}
+	title={`${labels.title}: ${displayTag} | mozgrozmowy.pl`}
+	description={description}
 	kicker={labels.kicker}
 	heading={tag}
-	intro={`${labels.introPrefix} „${tag}”.`}
+	intro={intro}
 	items={items}
 	variant="soft"
 />

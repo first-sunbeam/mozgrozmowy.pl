@@ -1,0 +1,21 @@
+---
+import TagOverviewPage from "../components/pages/TagOverviewPage.astro";
+import { ui } from "../i18n/ui";
+import { getTagOverviewItems } from "../lib/content";
+
+const copy = ui.pl.tags;
+const items = await getTagOverviewItems("pl");
+---
+
+<TagOverviewPage
+	lang="pl"
+	pathname={copy.pathname}
+	alternatePath="/en/tags"
+	title={copy.title}
+	description={copy.description}
+	kicker={copy.kicker}
+	heading={copy.heading}
+	intro={copy.intro}
+	items={items}
+	countSuffix={copy.countSuffix}
+/>

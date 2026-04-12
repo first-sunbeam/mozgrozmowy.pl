@@ -69,3 +69,45 @@ export function translateTag(tag: string, from: Lang, to: Lang) {
 	const pair = tagPairs.find((item) => item[from] === tag);
 	return pair?.[to];
 }
+
+const tagExpansions: Partial<Record<Lang, Partial<Record<string, string>>>> = {
+	pl: {
+		ABA: "Applied Behavior Analysis",
+		ACT: "Acceptance and Commitment Therapy",
+		ADHD: "Attention-Deficit/Hyperactivity Disorder",
+		PDA: "Persistent Drive for Autonomy",
+		SIB: "Self-Injurious Behavior",
+	},
+	en: {
+		ABA: "Applied Behavior Analysis",
+		ACT: "Acceptance and Commitment Therapy",
+		ADHD: "Attention-Deficit/Hyperactivity Disorder",
+		PDA: "Persistent Drive for Autonomy",
+		SIB: "Self-Injurious Behavior",
+	},
+};
+
+const tagExplanations: Partial<Record<Lang, Partial<Record<string, string>>>> = {
+	pl: {
+		ABA: "Applied Behavior Analysis. Termin używany dla podejść opartych na analizie zachowania; w tym projekcie pojawia się głównie w kontekście krytycznej refleksji nad praktyką, etyką i doświadczeniem osób neuroróżnorodnych.",
+		ACT: "Acceptance and Commitment Therapy. Podejście terapeutyczne skupione na akceptacji, elastyczności psychologicznej, wartościach i świadomym działaniu mimo trudnych stanów wewnętrznych.",
+		ADHD: "Attention-Deficit/Hyperactivity Disorder. Skrót używany dla zespołu nadpobudliwości psychoruchowej z deficytem uwagi; na stronie pojawia się w kontekście doświadczenia, regulacji, uwagi i przeciążenia.",
+		PDA: "Persistent Drive for Autonomy; historycznie termin rozwijano także jako Pathological Demand Avoidance. W tym projekcie używamy go do opisu silnej potrzeby autonomii i trudności pojawiających się pod presją żądań, kontroli lub przymusu.",
+		SIB: "Self-Injurious Behavior. Skrót odnoszący się do zachowań autoagresywnych; tutaj używany ostrożnie i kontekstowo, z uwzględnieniem przeciążenia, regulacji i znaczenia zachowania, a nie tylko jego zewnętrznego obrazu.",
+	},
+	en: {
+		ABA: "Applied Behavior Analysis. The term is used for approaches grounded in behavior analysis; on this site it appears mainly in the context of critical reflection on practice, ethics, and neurodivergent lived experience.",
+		ACT: "Acceptance and Commitment Therapy. A therapeutic approach focused on acceptance, psychological flexibility, values, and committed action in the presence of difficult internal states.",
+		ADHD: "Attention-Deficit/Hyperactivity Disorder. The abbreviation is used for ADHD as a diagnostic term; on this site it appears in discussions of lived experience, regulation, attention, and overload.",
+		PDA: "Persistent Drive for Autonomy; historically, the term was also expanded as Pathological Demand Avoidance. In this project, it is used to describe a strong drive for autonomy and the difficulties that can emerge under pressure, demands, control, or coercion.",
+		SIB: "Self-Injurious Behavior. This abbreviation refers to self-injurious behavior; here it is used carefully and contextually, with attention to overload, regulation, and the meaning of the behavior rather than only its outward form.",
+	},
+};
+
+export function getTagExpansion(lang: Lang, tag: string) {
+	return tagExpansions[lang]?.[tag];
+}
+
+export function getTagExplanation(lang: Lang, tag: string) {
+	return tagExplanations[lang]?.[tag];
+}

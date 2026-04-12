@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 	return getConversationStaticPaths("pl");
 }
 
-const { entry, alternatePath } = Astro.props;
+const { entry, alternatePath, previousEntry, nextEntry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -18,5 +18,9 @@ const { Content } = await render(entry);
 	pathname={getConversationPath("pl", entry.data.slug)}
 	alternatePath={alternatePath}
 	kicker={ui.pl.article.kicker}
+	previousEntry={previousEntry}
+	nextEntry={nextEntry}
+	previousLabel={ui.pl.article.previousConversationLabel}
+	nextLabel={ui.pl.article.nextConversationLabel}
 	Content={Content}
 />
