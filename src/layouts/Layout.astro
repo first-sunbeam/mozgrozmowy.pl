@@ -65,6 +65,7 @@ const labels =
 				menuCloseLabel: "Zamknij menu",
 				footerJobTitle: siteConfig.author.jobTitle,
 				footerPrivacy: "Polityka prywatności",
+				footerFacebook: "Facebook",
 			}
 		: {
 				navConversations: "Conversations",
@@ -80,6 +81,7 @@ const labels =
 				menuCloseLabel: "Close menu",
 				footerJobTitle: "Psychologist · Behavior analyst (BCBA)",
 				footerPrivacy: "Privacy policy",
+				footerFacebook: "Facebook",
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
@@ -263,7 +265,7 @@ const structuredDataItems = [
 		</header>
 		<slot />
 		<footer class="site-footer">
-			{siteConfig.author.name} · {labels.footerJobTitle} · <a href={toLocalizedPath("/privacy-policy", lang)}>{labels.footerPrivacy}</a>
+			{siteConfig.author.name} · {labels.footerJobTitle} · <a href={toLocalizedPath("/privacy-policy", lang)}>{labels.footerPrivacy}</a> · <a href="https://www.facebook.com/mikolajczyk.malgosia" target="_blank" rel="noopener noreferrer">{labels.footerFacebook}</a>
 		</footer>
 	</body>
 </html>
