@@ -11,10 +11,10 @@ export const topicMap = {
 			},
 			{
 				title: "Rozmowa z Mózgiem: pani Podręcznik kontra układ kartezjański",
-				href: "/reflections/neurodiversity-therapist-journey/",
+				href: "/reflections/neurodivergent-therapy-journey/",
 				kind: "refleksja",
 				description:
-					"O różnicy między podręcznikową terapią emocji a realnym, neurodiversity-affirming wsparciem.",
+					"O różnicy między podręcznikową terapią emocji a realnym wsparciem afirmującym osoby neuroatypowe.",
 			},
 			{
 				title:
@@ -55,7 +55,7 @@ export const topicMap = {
 					{
 						title:
 							"Rozmowa z Mózgiem: pani Podręcznik kontra układ kartezjański",
-						href: "/reflections/neurodiversity-therapist-journey/",
+						href: "/reflections/neurodivergent-therapy-journey/",
 						kind: "refleksja",
 						description:
 							"Dlaczego klasyczne nazywanie emocji nie zawsze prowadzi do regulacji, a czasem tylko do większego zmęczenia.",
@@ -68,7 +68,7 @@ export const topicMap = {
 							"Manifest o zderzeniu stylów poznawczych: struktura kontra metafora, logika kontra intuicja.",
 					},
 					{
-						title: "Terapia neuroróżnorodna w trybie analityczno-strukturalnym",
+						title: "Terapia neuroatypowa w trybie analityczno-strukturalnym",
 						href: "/conversations/nd-terapia-w-trybie-analityczno-strukturalnym/",
 						kind: "rozmowa",
 						description:
@@ -172,11 +172,11 @@ export const topicMap = {
 				],
 			},
 			{
-				title: "Relacje, tożsamość i codzienność neuroróżnorodna",
+				title: "Relacje, tożsamość i codzienność neuroatypowa",
 				items: [
 					{
-						title: "Neuroróżnorodni przyjaciele: Relacje, które rozumieją",
-						href: "/conversations/neuroroznorodni-przyjaciele-i-relacje/",
+						title: "Neuroatypowi przyjaciele: Relacje, które rozumieją",
+						href: "/conversations/neuroatypowi-przyjaciele-i-relacje/",
 						kind: "rozmowa",
 						description:
 							"O relacjach, które nie mieszczą się w społecznych definicjach, a mimo to są prawdziwe i żywe.",
@@ -190,8 +190,8 @@ export const topicMap = {
 							"Bez performowania radości, bez przymusu świętowania — samo bycie też może być wystarczające.",
 					},
 					{
-						title: "Neuroróżnorodność to nie supermoc",
-						href: "/conversations/neuroroznorodnosc-to-nie-supermoc/",
+						title: "Neuroatypowość to nie supermoc",
+						href: "/conversations/neuroatypowosc-to-nie-supermoc/",
 						kind: "rozmowa",
 						description:
 							"O koszcie funkcjonowania w świecie, który widzi tylko talent, a nie cenę płaconą za przetrwanie.",
@@ -288,10 +288,10 @@ export const topicMap = {
 			},
 			{
 				title: "Manual Lady vs. Cartesian System",
-				href: "/en/reflections/neurodiversity-therapist-journey/",
+				href: "/en/reflections/neurodivergent-therapy-journey/",
 				kind: "reflection",
 				description:
-					"On the difference between textbook emotion work and real neurodiversity-affirming support.",
+					"On the difference between textbook emotion work and real support affirming neurodivergent people.",
 			},
 			{
 				title: "Autistic STOP signals: burnout → inertia → meltdown → shutdown",
@@ -331,7 +331,7 @@ export const topicMap = {
 					{
 						title:
 							"Conversation with the Brain: Manual Lady vs. Cartesian System",
-						href: "/en/reflections/neurodiversity-therapist-journey/",
+						href: "/en/reflections/neurodivergent-therapy-journey/",
 						kind: "reflection",
 						description:
 							"Why classic emotion labeling does not always lead to regulation, and may instead produce more exhaustion.",
@@ -463,8 +463,8 @@ export const topicMap = {
 							"Not about performative celebration, but about being autistic without having to justify your existence.",
 					},
 					{
-						title: "Neurodiversity Is Not a Superpower",
-						href: "/en/conversations/neurodiversity-is-not-a-superpower/",
+						title: "Neurodivergence Is Not a Superpower",
+						href: "/en/conversations/neurodivergence-is-not-a-superpower/",
 						kind: "conversation",
 						description:
 							"About the cost of functioning in a world that notices talent but ignores survival.",

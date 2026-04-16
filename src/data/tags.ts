@@ -20,7 +20,7 @@ export const tagPairs = [
 	{ pl: "maskowanie", en: "masking" },
 	{ pl: "meltdown", en: "meltdown" },
 	{ pl: "monotropizm", en: "monotropism" },
-	{ pl: "neuroróżnorodność", en: "neurodiversity" },
+	{ pl: "neuroatypowość", en: "neurodivergence" },
 	{ pl: "niepełnosprawność", en: "disability" },
 	{ pl: "opieka", en: "care" },
 	{ pl: "perfekcjonizm", en: "perfectionism" },
@@ -89,7 +89,7 @@ const tagExpansions: Partial<Record<Lang, Partial<Record<string, string>>>> = {
 
 const tagExplanations: Partial<Record<Lang, Partial<Record<string, string>>>> = {
 	pl: {
-		ABA: "Applied Behavior Analysis. Termin używany dla podejść opartych na analizie zachowania; w tym projekcie pojawia się głównie w kontekście krytycznej refleksji nad praktyką, etyką i doświadczeniem osób neuroróżnorodnych.",
+		ABA: "Applied Behavior Analysis. Termin używany dla podejść opartych na analizie zachowania; w tym projekcie pojawia się głównie w kontekście krytycznej refleksji nad praktyką, etyką i doświadczeniem osób neuroatypowych.",
 		ACT: "Acceptance and Commitment Therapy. Podejście terapeutyczne skupione na akceptacji, elastyczności psychologicznej, wartościach i świadomym działaniu mimo trudnych stanów wewnętrznych.",
 		ADHD: "Attention-Deficit/Hyperactivity Disorder. Skrót używany dla zespołu nadpobudliwości psychoruchowej z deficytem uwagi; na stronie pojawia się w kontekście doświadczenia, regulacji, uwagi i przeciążenia.",
 		PDA: "Persistent Drive for Autonomy; historycznie termin rozwijano także jako Pathological Demand Avoidance. W tym projekcie używamy go do opisu silnej potrzeby autonomii i trudności pojawiających się pod presją żądań, kontroli lub przymusu.",

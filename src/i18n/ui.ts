@@ -4,7 +4,7 @@ export const ui = {
 	pl: {
 		home: {
 			title: "Rozmowy o terapii, przeciążeniu i wsparciu | mozgrozmowy.pl",
-			description: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia. Teksty o neuroróżnorodności, regulacji i codziennym funkcjonowaniu.",
+			description: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia. Teksty o neuroatypowości, regulacji i codziennym funkcjonowaniu.",
 			pathname: "/",
 			kicker: "Najnowsze rozmowy",
 			heading:
@@ -55,7 +55,7 @@ export const ui = {
 			intro:
 				"Ta strona daje kontekst: kto stoi za rozmowami i jak ten projekt podchodzi do analizy, terapii, przeciążenia i doświadczenia.",
 			paragraphs: [
-				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroróżnorodności, tylko budowania spokojnego, precyzyjnego języka dla terapii, systemów wsparcia, przeciążenia i codziennego funkcjonowania.",
+				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroatypowości, tylko budowania spokojnego, precyzyjnego języka dla terapii, systemów wsparcia, przeciążenia i codziennego funkcjonowania.",
 				"Forma jest celowo prosta. Bez archiwów, bez nadmiaru metadanych, bez zbędnego interfejsu. Jedna czytelna droga do treści.",
 				"Aktualny status projektu: publiczna wersja alpha. Strona jest gotowa do oglądania i czytania, ale będzie dalej rozwijana redakcyjnie i technicznie.",
 			],
