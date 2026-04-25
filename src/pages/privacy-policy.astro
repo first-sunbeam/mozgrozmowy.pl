@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { contactEmail, siteConfig } from "../data/site";
 import "../styles/content-pages.css";
 ---
 
@@ -23,8 +24,10 @@ import "../styles/content-pages.css";
 		<section class="about-card surface-card">
 			<h2>1. Administrator strony</h2>
 			<p>
-				Administratorką tej strony jest autorka i właścicielka projektu
-				mozgrozmowy.pl.
+				Administratorką danych osobowych przetwarzanych w związku z działaniem
+				strony mozgrozmowy.pl jest {siteConfig.author.name}. W sprawach związanych
+				z prywatnością można skontaktować się mailowo:
+				<a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
 			</p>
 
 			<h2>2. Jakie dane mogą być przetwarzane</h2>
@@ -34,9 +37,10 @@ import "../styles/content-pages.css";
 				stronami czy usługami.
 			</p>
 			<p>
-				Od strony technicznej hosting i serwer mogą przetwarzać podstawowe dane
-				potrzebne do wyświetlenia strony i zapewnienia bezpieczeństwa, takie jak
-				adres IP, data zapytania, typ przeglądarki czy logi serwera.
+				Od strony technicznej serwer i dostawca hostingu mogą przetwarzać
+				podstawowe dane potrzebne do wyświetlenia strony i zapewnienia
+				bezpieczeństwa, takie jak adres IP, data zapytania, typ przeglądarki czy
+				logi serwera.
 			</p>
 
 			<h2>3. Cookies</h2>
@@ -49,23 +53,53 @@ import "../styles/content-pages.css";
 				ta polityka prywatności zostanie odpowiednio zaktualizowana.
 			</p>
 
-			<h2>4. Kontakt</h2>
+			<h2>4. Kontakt mailowy i podstawy przetwarzania</h2>
 			<p>
 				Jeżeli kontaktujesz się ze mną mailowo, przetwarzam dane podane w
 				wiadomości wyłącznie w celu odpowiedzi i dalszego kontaktu w tej sprawie.
 			</p>
-
-			<h2>5. Twoje prawa</h2>
 			<p>
-				Masz prawo do informacji o przetwarzaniu danych, dostępu do swoich danych,
-				ich sprostowania, usunięcia lub ograniczenia przetwarzania — w zakresie
-				wynikającym z obowiązujących przepisów.
+				Podstawą prawną przetwarzania jest art. 6 ust. 1 lit. f RODO, czyli mój
+				prawnie uzasadniony interes polegający na prowadzeniu korespondencji i
+				udzielaniu odpowiedzi. Jeżeli wiadomość dotyczy zawarcia lub wykonania
+				umowy albo działań podejmowanych na Twoje żądanie przed jej zawarciem,
+				podstawą przetwarzania może być również art. 6 ust. 1 lit. b RODO.
 			</p>
 
-			<h2>6. Zmiany</h2>
+			<h2>5. Odbiorcy danych i czas przechowywania</h2>
+			<p>
+				Odbiorcami danych mogą być podmioty zapewniające utrzymanie techniczne
+				strony, w szczególności dostawca hostingu oraz poczty elektronicznej —
+				wyłącznie w zakresie niezbędnym do świadczenia tych usług.
+			</p>
+			<p>
+				Dane związane z korespondencją mailową są przechowywane przez czas
+				niezbędny do obsługi kontaktu, a następnie przez okres potrzebny do obrony
+				przed ewentualnymi roszczeniami lub wykazania przebiegu korespondencji,
+				jeżeli jest to uzasadnione. Dane techniczne i logi serwera są
+				przechowywane przez czas niezbędny do zapewnienia bezpieczeństwa i
+				prawidłowego działania strony.
+			</p>
+
+			<h2>6. Twoje prawa</h2>
+			<p>
+				Masz prawo do informacji o przetwarzaniu danych, dostępu do swoich danych,
+				ich sprostowania, usunięcia, ograniczenia przetwarzania oraz — w
+				przypadkach przewidzianych przepisami — wniesienia sprzeciwu wobec
+				przetwarzania.
+			</p>
+			<p>
+				Masz również prawo wnieść skargę do Prezesa Urzędu Ochrony Danych
+				Osobowych, jeżeli uznasz, że przetwarzanie danych narusza przepisy RODO.
+			</p>
+
+			<h2>7. Zmiany</h2>
 			<p>
 				Ta polityka może być w przyszłości aktualizowana, jeśli zmieni się
-				techniczny sposób działania strony.
+				techniczny sposób działania strony lub zakres przetwarzania danych.
+			</p>
+			<p>
+				Ostatnia aktualizacja: 25 kwietnia 2026 r.
 			</p>
 		</section>
 	</main>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { contactEmail, siteConfig } from "../../data/site";
 import "../../styles/content-pages.css";
 ---
 
@@ -23,8 +24,10 @@ import "../../styles/content-pages.css";
 		<section class="about-card surface-card">
 			<h2>1. Website controller</h2>
 			<p>
-				The controller of this website is the author and owner of the
-				mozgrozmowy.pl project.
+				The controller of personal data processed in connection with the operation
+				of mozgrozmowy.pl is {siteConfig.author.name}. For privacy-related matters,
+				you can contact me by email at
+				<a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
 			</p>
 
 			<h2>2. What data may be processed</h2>
@@ -33,7 +36,7 @@ import "../../styles/content-pages.css";
 				forms, or tools designed to track users across pages or services.
 			</p>
 			<p>
-				From a technical perspective, the hosting provider and server may process
+				From a technical perspective, the server and hosting provider may process
 				basic data necessary to display the website and maintain security, such as
 				IP address, request date, browser type, or server logs.
 			</p>
@@ -48,24 +51,53 @@ import "../../styles/content-pages.css";
 				updated accordingly.
 			</p>
 
-			<h2>4. Contact</h2>
+			<h2>4. Email contact and legal bases</h2>
 			<p>
 				If you contact me by email, I process the data included in your message
 				only for the purpose of replying and continuing communication about that
 				matter.
 			</p>
-
-			<h2>5. Your rights</h2>
 			<p>
-				You have the right to information about data processing, access to your
-				data, rectification, erasure, or restriction of processing — to the extent
-				provided by applicable law.
+				The legal basis for processing is Article 6(1)(f) GDPR, i.e. my legitimate
+				interest in handling correspondence and responding to messages. If your
+				message concerns entering into or performing a contract, or taking steps at
+				your request prior to entering into a contract, the legal basis may also be
+				Article 6(1)(b) GDPR.
 			</p>
 
-			<h2>6. Changes</h2>
+			<h2>5. Data recipients and retention period</h2>
+			<p>
+				Data recipients may include entities providing technical maintenance for the
+				website, in particular the hosting provider and email service provider,
+				only to the extent necessary for the provision of those services.
+			</p>
+			<p>
+				Data related to email correspondence is stored for the time necessary to
+				handle the contact, and afterwards for the period needed to defend against
+				possible claims or document the course of correspondence where justified.
+				Technical data and server logs are stored for the time necessary to ensure
+				security and the proper operation of the website.
+			</p>
+
+			<h2>6. Your rights</h2>
+			<p>
+				You have the right to information about data processing, access to your
+				data, rectification, erasure, restriction of processing, and — where
+				provided by law — to object to processing.
+			</p>
+			<p>
+				You also have the right to lodge a complaint with the President of the
+				Personal Data Protection Office in Poland if you believe that the
+				processing of your data violates the GDPR.
+			</p>
+
+			<h2>7. Changes</h2>
 			<p>
 				This policy may be updated in the future if the technical operation of the
-				website changes.
+				website or the scope of data processing changes.
+			</p>
+			<p>
+				Last updated: April 25, 2026.
 			</p>
 		</section>
 	</main>
