@@ -59,6 +59,9 @@ export const ui = {
 				"Forma jest celowo prosta. Bez archiwów, bez nadmiaru metadanych, bez zbędnego interfejsu. Jedna czytelna droga do treści.",
 				"Aktualny status projektu: publiczna wersja alpha. Strona jest gotowa do oglądania i czytania, ale będzie dalej rozwijana redakcyjnie i technicznie.",
 			],
+			professionalLinkLead:
+				"Ta strona jest projektem autorskim. Jeśli szukasz informacji o mojej pracy zawodowej i konsultacjach, znajdziesz je na stronie:",
+			professionalLinkLabel: "autyzm.poznan.pl",
 			contactLead: "Jeśli chcesz się odezwać —",
 			contactLinkLabel: "napisz",
 		},
@@ -139,8 +142,11 @@ export const ui = {
 				"The structure is intentionally simple. No archives, no metadata clutter, no unnecessary interface. Just a clear way into the ideas.",
 				"Current project status: public alpha. The site is ready to be viewed and read, but it will continue to evolve both editorially and technically.",
 			],
+			professionalLinkLead:
+				"This site is an authorial project. If you are looking for information about my professional work and consultations, you can find it at:",
+			professionalLinkLabel: "autyzm.poznan.pl",
 			contactLead: "If you want to reach out —",
-			contactLinkLabel: "write to me",
+			contactLinkLabel: "write to me", 
 		},
 		article: {
 			kicker: "Conversation",

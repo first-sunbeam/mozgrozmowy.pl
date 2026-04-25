@@ -13,6 +13,8 @@ interface Props {
 	heading: string;
 	intro: string;
 	paragraphs: readonly string[];
+	professionalLinkLead: string;
+	professionalLinkLabel: string;
 	contactLead: string;
 	contactLinkLabel: string;
 }
@@ -26,11 +28,14 @@ const {
 	heading,
 	intro,
 	paragraphs,
+	professionalLinkLead,
+	professionalLinkLabel,
 	contactLead,
 	contactLinkLabel,
 } = Astro.props;
 
 const contactHref = `mailto:${contactEmail}`;
+const professionalHref = "https://autyzm.poznan.pl";
 ---
 
 <Layout title={title} description={description} lang={lang} pathname={pathname}>
@@ -43,6 +48,12 @@ const contactHref = `mailto:${contactEmail}`;
 
 		<section class="about-card surface-card">
 			{paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+			<p>
+				{professionalLinkLead}
+				<a href={professionalHref} target="_blank" rel="noopener noreferrer">
+					{professionalLinkLabel}
+				</a>.
+			</p>
 			<p>
 				{contactLead}
 				<a href={contactHref}>{contactLinkLabel}</a>.
