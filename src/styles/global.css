@@ -50,6 +50,11 @@ body {
 	margin-left: auto;
 }
 
+.site-nav-shell {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
 .site-brand {
 	display: inline-flex;
 	align-items: center;
@@ -274,6 +279,26 @@ button:hover,
 /* ── breakpoints ── */
 
 @media (max-width: 720px) {
+	.site-brand {
+		display: none;
+	}
+
+	.site-header__top {
+		align-items: flex-start;
+	}
+
+	.site-nav-shell {
+		width: 100%;
+	}
+
+	.site-nav-details {
+		width: 100%;
+	}
+
+	.site-nav-toggle {
+		width: 100%;
+		justify-content: space-between;
+	}
 
 	.site-nav-details[open] + * + .site-nav,
 	.site-nav-details[open] ~ .site-nav {
