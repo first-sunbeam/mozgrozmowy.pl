@@ -108,6 +108,12 @@ const ogLocale = lang === "pl" ? "pl_PL" : "en_US";
 const ogAlternateLocale = lang === "pl" ? "en_US" : "pl_PL";
 const navItems = [
 	{
+		label: lang === "pl" ? "Start" : "Home",
+		href: toLocalizedPath("/", lang),
+		active: pathnameForMatching === "/" || pathnameForMatching === "/en",
+		mobileOnly: true,
+	},
+	{
 		label: labels.navConversations,
 		href: toLocalizedPath("/conversations", lang),
 		active:
@@ -246,7 +252,7 @@ const structuredDataItems = [
 						>
 							{
 								navItems.map((item) => (
-									<a class:list={{ active: item.active }} href={item.href}>
+									<a class:list={{ active: item.active, "site-nav__mobile-only": item.mobileOnly }} href={item.href}>
 										{item.label}
 									</a>
 								))
