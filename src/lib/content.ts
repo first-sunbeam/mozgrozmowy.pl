@@ -7,6 +7,7 @@ export interface ContentListItem {
 	title: string;
 	description: string;
 	href: string;
+	publishedAt: Date;
 }
 
 export interface ConversationListItem extends ContentListItem {}
@@ -45,14 +46,14 @@ function toArticlePath(entry: ArticleEntry) {
 		: getReflectionPath(entry.data.lang, entry.data.slug);
 }
 
-function toListItems<T extends { data: { title: string; description: string; slug: string } }>(
-	entries: T[],
-	getPath: (slug: string) => string,
-): ContentListItem[] {
+function toListItems<
+	T extends { data: { title: string; description: string; slug: string; publishedAt: Date } },
+>(entries: T[], getPath: (slug: string) => string): ContentListItem[] {
 	return entries.map((entry) => ({
 		title: entry.data.title,
 		description: entry.data.description,
 		href: getPath(entry.data.slug),
+		publishedAt: entry.data.publishedAt,
 	}));
 }
 
@@ -193,6 +194,7 @@ export async function getTagStaticPaths(lang: Lang) {
 					title: entry.data.title,
 					description: entry.data.description,
 					href: toArticlePath(entry),
+					publishedAt: entry.data.publishedAt,
 				})),
 				alternatePath: alternateTag ? getTagPath(lang === "pl" ? "en" : "pl", alternateTag) : undefined,
 			},

@@ -3,18 +3,30 @@ interface ConversationListItem {
 	title: string;
 	description: string;
 	href: string;
+	publishedAt: Date;
 }
 
 interface Props {
 	items: ConversationListItem[];
+	lang: "pl" | "en";
 }
 
-const { items } = Astro.props;
+const { items, lang } = Astro.props;
+const dateLocale = lang === "pl" ? "pl-PL" : "en-US";
+const formatDate = (date: Date) =>
+	new Intl.DateTimeFormat(dateLocale, {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	}).format(date);
 ---
 
 <div class="conversation-list">
 	{items.map((item) => (
 		<article class="conversation-card surface-card">
+			<p class="conversation-card__date">
+				<time datetime={item.publishedAt.toISOString()}>{formatDate(item.publishedAt)}</time>
+			</p>
 			<h2>
 				<a href={item.href}>{item.title}</a>
 			</h2>
@@ -48,6 +60,13 @@ const { items } = Astro.props;
 
 	.conversation-card h2 a:hover {
 		color: var(--color-primary-hover);
+	}
+
+	.conversation-card__date {
+		margin: 0 0 0.45rem;
+		color: var(--color-text-secondary);
+		font-size: 0.88rem;
+		line-height: 1.5;
 	}
 
 	.conversation-card p {
