@@ -3,13 +3,6 @@ export const topicMap = {
 		featuredTitle: "Od czego zacząć",
 		featured: [
 			{
-				title: "Jeśli tak wygląda dorosłość, to jak ma wyglądać terapia?",
-				href: "/conversations/jesli-tak-wyglada-doroslosc-to-jak-ma-wygladac-terapia/",
-				kind: "rozmowa",
-				description:
-					"Dobry tekst wejściowy o terapii, PDA, przeciążeniu i tym, dlaczego samo wymaganie może być blokadą.",
-			},
-			{
 				title: "Rozmowa z Mózgiem: pani Podręcznik kontra układ kartezjański",
 				href: "/reflections/neurodivergent-therapy-journey/",
 				kind: "refleksja",
@@ -32,6 +25,13 @@ export const topicMap = {
 				description:
 					"Tekst o autystycznym myśleniu, sieci znaczeń i tym, dlaczego świat często widzi tylko pomyłkę w słowie.",
 			},
+			{
+				title: "Mgła, mróz i kolor drzwi",
+				href: "/conversations/rozmowa-z-mozgiem-mgla-mroz-i-kolor-drzwi/",
+				kind: "rozmowa",
+				description:
+					"O pamięci, która nie przychodzi jako gotowa historia, tylko jako fragmenty, od których można zacząć bezpieczną mapę.",
+			},
 		],
 		groups: [
 			{
@@ -51,6 +51,13 @@ export const topicMap = {
 						kind: "rozmowa",
 						description:
 							"Co dzieje się wewnętrznie, gdy terapeuta zadaje pytanie bez struktury i bez wektora.",
+					},
+					{
+						title: "Mgła, mróz i kolor drzwi",
+						href: "/conversations/rozmowa-z-mozgiem-mgla-mroz-i-kolor-drzwi/",
+						kind: "rozmowa",
+						description:
+							"O pamięci, która wraca fragmentami, i o tym, jak jeden detal może stać się bezpiecznym początkiem mapy.",
 					},
 					{
 						title:
@@ -279,14 +286,6 @@ export const topicMap = {
 		featuredTitle: "Start here",
 		featured: [
 			{
-				title:
-					"If this is what adulthood looks like, what should therapy look like?",
-				href: "/en/conversations/if-this-is-what-adulthood-looks-like-what-should-therapy-look-like/",
-				kind: "conversation",
-				description:
-					"A strong entry text on therapy, PDA, overload, and why demand itself can become a block.",
-			},
-			{
 				title: "Manual Lady vs. Cartesian System",
 				href: "/en/reflections/neurodivergent-therapy-journey/",
 				kind: "reflection",
@@ -308,6 +307,13 @@ export const topicMap = {
 				description:
 					"A text about autistic meaning-making and why the world often sees only a wrong word.",
 			},
+			{
+				title: "Fog, Frost, and the Color of the Door",
+				href: "/en/conversations/fog-frost-and-the-colour-of-the-door/",
+				kind: "conversation",
+				description:
+					"About memory that does not arrive as a complete story, but as fragments from which a safe map can begin.",
+			},
 		],
 		groups: [
 			{
@@ -327,6 +333,13 @@ export const topicMap = {
 						kind: "conversation",
 						description:
 							"What happens internally when a therapist asks a question without structure or direction.",
+					},
+					{
+						title: "Fog, Frost, and the Color of the Door",
+						href: "/en/conversations/fog-frost-and-the-colour-of-the-door/",
+						kind: "conversation",
+						description:
+							"About memory that returns in fragments, and how one detail can become a safe starting point for a map.",
 					},
 					{
 						title:
