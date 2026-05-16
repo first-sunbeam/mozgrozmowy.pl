@@ -2,8 +2,7 @@
 import "../styles/theme.css";
 import "../styles/global.css";
 import "../styles/dialog-line.css";
-import { Image } from "astro:assets";
-import logo from "../assets/noBgColor-logo.svg";
+import logoSvg from "../assets/noBgColor-logo.svg?raw";
 import { siteConfig } from "../data/site";
 
 interface Props {
@@ -65,6 +64,9 @@ const labels =
 				menuCloseLabel: "Zamknij menu",
 				footerJobTitle: siteConfig.author.jobTitle,
 				footerPrivacy: "Polityka prywatności",
+				themeToggleLabel: "Przełącz tryb kolorów",
+				themeToggleDark: "Ciemny",
+				themeToggleLight: "Jasny",
 			}
 		: {
 				navConversations: "Conversations",
@@ -80,6 +82,9 @@ const labels =
 				menuCloseLabel: "Close menu",
 				footerJobTitle: "Psychologist · Behavior analyst (BCBA)",
 				footerPrivacy: "Privacy policy",
+				themeToggleLabel: "Toggle color mode",
+				themeToggleDark: "Dark",
+				themeToggleLight: "Light",
 			};
 
 const switchHref = alternatePath ?? toAlternateLanguagePath(pathname, lang);
@@ -176,6 +181,9 @@ const structuredDataItems = [
 			: [structuredData]
 		: []),
 ];
+const logoMarkup = logoSvg
+	.replace(/\swidth="[^"]*"/, ' width="180"')
+	.replace(/\sheight="[^"]*"/, ' height="82"');
 ---
 
 <!doctype html>
@@ -190,7 +198,8 @@ const structuredDataItems = [
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#ffffff" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#24221f" media="(prefers-color-scheme: dark)" />
 		<meta name="apple-mobile-web-app-title" content="MÓZG" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content={siteConfig.siteName} />
@@ -229,14 +238,23 @@ const structuredDataItems = [
 				/>
 			))
 		}
+		<script is:inline>
+			(() => {
+				const storedTheme = localStorage.getItem("theme");
+
+				if (storedTheme === "light" || storedTheme === "dark") {
+					document.documentElement.dataset.theme = storedTheme;
+				}
+			})();
+		</script>
 		<title>{title}</title>
 	</head>
 	<body>
 		<header class="site-header">
 			<div class="site-header__inner" data-header>
 				<div class="site-header__top">
-					<a class="site-brand" href={toLocalizedPath("/", lang)}>
-						<Image src={logo} alt="Mózg Rozmowy" width={180} loading="eager" />
+					<a class="site-brand" href={toLocalizedPath("/", lang)} aria-label={labels.homeAriaLabel}>
+						<span class="site-brand__logo" aria-hidden="true" set:html={logoMarkup} />
 					</a>
 					<div class="site-nav-shell">
 						<details class="site-nav-details">
@@ -260,6 +278,16 @@ const structuredDataItems = [
 						</nav>
 					</div>
 					<div class="site-header__controls">
+						<button
+							class="site-theme-toggle"
+							type="button"
+							aria-label={labels.themeToggleLabel}
+							data-theme-toggle
+							data-dark-label={labels.themeToggleDark}
+							data-light-label={labels.themeToggleLight}
+						>
+							<span data-theme-toggle-text>{labels.themeToggleDark}</span>
+						</button>
 						<a class="site-lang-switch" href={switchHref}>
 							{labels.switchLabel}
 						</a>
@@ -271,5 +299,43 @@ const structuredDataItems = [
 		<footer class="site-footer">
 			{siteConfig.author.name} · {labels.footerJobTitle} · <a href={toLocalizedPath("/privacy-policy", lang)}>{labels.footerPrivacy}</a>
 		</footer>
+		<script is:inline>
+			(() => {
+				const toggle = document.querySelector("[data-theme-toggle]");
+
+				if (!(toggle instanceof HTMLButtonElement)) {
+					return;
+				}
+
+				const label = toggle.querySelector("[data-theme-toggle-text]");
+				const darkLabel = toggle.dataset.darkLabel || "Dark";
+				const lightLabel = toggle.dataset.lightLabel || "Light";
+				const prefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+				const getTheme = () => document.documentElement.dataset.theme || (prefersDark() ? "dark" : "light");
+				const updateToggle = () => {
+					const nextLabel = getTheme() === "dark" ? lightLabel : darkLabel;
+
+					if (label) {
+						label.textContent = nextLabel;
+					}
+				};
+
+				toggle.addEventListener("click", () => {
+					const nextTheme = getTheme() === "dark" ? "light" : "dark";
+
+					document.documentElement.dataset.theme = nextTheme;
+					localStorage.setItem("theme", nextTheme);
+					updateToggle();
+				});
+
+				window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+					if (!document.documentElement.dataset.theme) {
+						updateToggle();
+					}
+				});
+
+				updateToggle();
+			})();
+		</script>
 	</body>
 </html>

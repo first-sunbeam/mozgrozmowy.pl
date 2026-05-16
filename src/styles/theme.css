@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 
@@ -41,4 +41,143 @@
   /*  SHADOW / FOCUS */
   --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
   --focus-ring: 0 0 0 3px rgba(161, 132, 78, 0.25);
+
+  /*  HEADER */
+  --header-bg: color-mix(
+    in srgb,
+    var(--color-primary) 92%,
+    var(--color-white) 8%
+  );
+  --header-border: var(--border-light);
+  --header-link-color: var(--color-text-on-primary);
+  --header-link-hover-bg: color-mix(
+    in srgb,
+    var(--color-bg-light) 70%,
+    var(--color-white) 30%
+  );
+  --header-link-hover-color: var(--color-primary-hover);
+  --header-link-active-bg: color-mix(
+    in srgb,
+    var(--color-bg-light) 76%,
+    var(--color-white) 24%
+  );
+  --header-link-active-color: var(--color-primary);
+  --header-control-bg: var(--color-white);
+  --header-control-color: var(--color-primary);
+  --logo-fill-primary: #333333;
+  --logo-fill-secondary: #f7f6f3;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /*  AKCENT */
+  --color-primary: #d3b06e;
+  --color-primary-hover: #e3c586;
+  --color-secondary: #8b806c;
+  --color-primary-rgb: 211 176 110;
+
+  /*  TŁA */
+  --color-bg-light: #1d1c1a;
+  --color-bg-accent: #26231d;
+  --color-white: #141414;
+  --color-white-rgb: 20 20 20;
+
+  /*  TEKST */
+  --color-text-primary: #f2efe8;
+  --color-text-secondary: #c8c0b2;
+  --color-text-on-primary: #fff8e8;
+
+  /*  SYSTEM */
+  --bg-main: #10100f;
+  --bg-section: var(--color-bg-light);
+  --bg-section-alt: var(--color-bg-accent);
+
+  /*  BUTTONY */
+  --btn-primary-bg: #a1844e;
+  --btn-primary-hover: #bb9b5f;
+  --btn-primary-text: #fff8e8;
+
+  /*  LINKI */
+  --link-color: var(--color-primary);
+  --link-hover: var(--color-primary-hover);
+
+  /*  BORDER / UI */
+  --border-light: #34302a;
+  --border-subtle: rgba(211, 176, 110, 0.24);
+
+  /*  SHADOW / FOCUS */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.34);
+  --focus-ring: 0 0 0 3px rgba(211, 176, 110, 0.34);
+
+  /*  HEADER */
+  --header-bg: color-mix(in srgb, #10100f 82%, transparent 18%);
+  --header-border: rgba(211, 176, 110, 0.2);
+  --header-link-color: var(--logo-fill-secondary);
+  --header-link-hover-bg: rgba(211, 176, 110, 0.12);
+  --header-link-hover-color: var(--logo-fill-primary);
+  --header-link-active-bg: rgba(211, 176, 110, 0.18);
+  --header-link-active-color: var(--logo-fill-primary);
+  --header-control-bg: rgba(211, 176, 110, 0.12);
+  --header-control-color: var(--logo-fill-secondary);
+  --logo-fill-primary: var(--color-primary);
+  --logo-fill-secondary: var(--color-text-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    /*  AKCENT */
+    --color-primary: #d3b06e;
+    --color-primary-hover: #e3c586;
+    --color-secondary: #8b806c;
+    --color-primary-rgb: 211 176 110;
+
+    /*  TŁA */
+    --color-bg-light: #1d1c1a;
+    --color-bg-accent: #26231d;
+    --color-white: #141414;
+    --color-white-rgb: 20 20 20;
+
+    /*  TEKST */
+    --color-text-primary: #f2efe8;
+    --color-text-secondary: #c8c0b2;
+    --color-text-on-primary: #fff8e8;
+
+    /*  SYSTEM */
+    --bg-main: #10100f;
+    --bg-section: var(--color-bg-light);
+    --bg-section-alt: var(--color-bg-accent);
+
+    /*  BUTTONY */
+    --btn-primary-bg: #a1844e;
+    --btn-primary-hover: #bb9b5f;
+    --btn-primary-text: #fff8e8;
+
+    /*  LINKI */
+    --link-color: var(--color-primary);
+    --link-hover: var(--color-primary-hover);
+
+    /*  BORDER / UI */
+    --border-light: #34302a;
+    --border-subtle: rgba(211, 176, 110, 0.24);
+
+    /*  SHADOW / FOCUS */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.34);
+    --focus-ring: 0 0 0 3px rgba(211, 176, 110, 0.34);
+
+    /*  HEADER */
+    --header-bg: color-mix(in srgb, #10100f 82%, transparent 18%);
+    --header-border: rgba(211, 176, 110, 0.2);
+    --header-link-color: var(--logo-fill-secondary);
+    --header-link-hover-bg: rgba(211, 176, 110, 0.12);
+    --header-link-hover-color: var(--logo-fill-primary);
+    --header-link-active-bg: rgba(211, 176, 110, 0.18);
+    --header-link-active-color: var(--logo-fill-primary);
+    --header-control-bg: rgba(211, 176, 110, 0.12);
+    --header-control-color: var(--logo-fill-secondary);
+    --logo-fill-primary: var(--color-primary);
+    --logo-fill-secondary: var(--color-text-primary);
+  }
 }
