@@ -2,8 +2,8 @@ export const siteConfig = {
 	siteName: "Rozmowy z Mózgiem",
 	siteUrl: "https://mozgrozmowy.pl",
 	defaultTitle: "mozgrozmowy.pl",
-	defaultDescription: "Site content coming soon.",
-	defaultOgImagePath: "/web-app-manifest-512x512.png",
+	defaultDescription: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia.",
+	defaultOgImagePath: "/og-default.png",
 	author: {
 		name: "Małgorzata Mikołajczyk",
 		jobTitle: "Psycholog · Analityk zachowania (BCBA)",
