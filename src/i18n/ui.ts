@@ -56,6 +56,7 @@ export const ui = {
 				"Ta strona daje kontekst: kto stoi za rozmowami i jak ten projekt podchodzi do analizy, terapii, przeciążenia i doświadczenia.",
 			paragraphs: [
 				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroatypowości, tylko budowania spokojnego, precyzyjnego języka dla terapii, systemów wsparcia, przeciążenia i codziennego funkcjonowania.",
+				"Treści publikowane na tej stronie i w moich mediach społecznościowych mają charakter psychoedukacyjny, refleksyjny i informacyjny. Nie są terapią, diagnozą ani indywidualną poradą psychologiczną. Mogą pomagać nazwać doświadczenie albo zobaczyć mechanizm, ale nie zastępują kontaktu ze specjalistą, zwłaszcza w sytuacji kryzysu lub potrzeby indywidualnej pomocy.",
 				"Forma jest celowo prosta. Bez archiwów, bez nadmiaru metadanych, bez zbędnego interfejsu. Jedna czytelna droga do treści.",
 				"Aktualny status projektu: publiczna wersja alpha. Strona jest gotowa do oglądania i czytania, ale będzie dalej rozwijana redakcyjnie i technicznie.",
 			],
@@ -69,6 +70,7 @@ export const ui = {
 			kicker: "Rozmowa",
 			publishedLabel: "Opublikowano",
 			updatedLabel: "Aktualizacja",
+			translationAvailableLabel: "English version available",
 			tagsLabel: "Tagi",
 			previousConversationLabel: "← Poprzednia rozmowa",
 			nextConversationLabel: "Następna rozmowa →",
@@ -139,6 +141,7 @@ export const ui = {
 				"This page gives context: who is behind the conversations and how this project approaches analysis, therapy, overload, and lived experience.",
 			paragraphs: [
 				"I work at the intersection of lived experience and analysis. This project is not about creating noise around neurodivergence, but about building a calm, precise language for therapy, support systems, overload, and everyday functioning.",
+				"The writing published on this site and in my social media is psychoeducational, reflective, and informational. It is not therapy, diagnosis, or individual psychological advice. It may help name an experience or notice a mechanism, but it does not replace contact with a professional, especially in crisis or when individual support is needed.",
 				"The structure is intentionally simple. No archives, no metadata clutter, no unnecessary interface. Just a clear way into the ideas.",
 				"Current project status: public alpha. The site is ready to be viewed and read, but it will continue to evolve both editorially and technically.",
 			],
@@ -152,6 +155,7 @@ export const ui = {
 			kicker: "Conversation",
 			publishedLabel: "Published",
 			updatedLabel: "Updated",
+			translationAvailableLabel: "Wersja polska dostępna tutaj",
 			tagsLabel: "Tags",
 			previousConversationLabel: "← Previous conversation",
 			nextConversationLabel: "Next conversation →",
