@@ -32,7 +32,6 @@ export const tagPairs = [
 	{ pl: "regulacja", en: "regulation" },
 	{ pl: "relacje", en: "relationships" },
 	{ pl: "rodzicielstwo", en: "parenting" },
-	{ pl: "rozmowy z mózgiem", en: "conversations with the brain" },
 	{ pl: "sens", en: "purpose" },
 	{ pl: "sensoryka", en: "sensory" },
 	{ pl: "shutdown", en: "shutdown" },
@@ -120,4 +119,39 @@ export function getTagExpansion(lang: Lang, tag: string) {
 
 export function getTagExplanation(lang: Lang, tag: string) {
 	return tagExplanations[lang]?.[tag];
+}
+
+export function getRelatedTags(lang: Lang, tag: string) {
+	const relatedTags: Record<Lang, Partial<Record<string, string[]>>> = {
+		pl: {
+			ASD: ["autyzm"],
+			autyzm: ["ASD", "AuDHD"],
+			ADHD: ["AuDHD"],
+			AuDHD: ["ADHD", "autyzm"],
+			przeciążenie: ["regulacja"],
+			regulacja: ["przeciążenie"],
+			meltdown: ["shutdown"],
+			shutdown: ["meltdown"],
+			PDA: ["autonomia"],
+			autonomia: ["PDA"],
+			terapia: ["psychoterapia"],
+			psychoterapia: ["terapia"],
+		},
+		en: {
+			ASD: ["autism"],
+			autism: ["ASD", "AuDHD"],
+			ADHD: ["AuDHD"],
+			AuDHD: ["ADHD", "autism"],
+			overload: ["regulation"],
+			regulation: ["overload"],
+			meltdown: ["shutdown"],
+			shutdown: ["meltdown"],
+			PDA: ["autonomy"],
+			autonomy: ["PDA"],
+			therapy: ["psychotherapy"],
+			psychotherapy: ["therapy"],
+		},
+	};
+
+	return relatedTags[lang][tag] ?? [];
 }

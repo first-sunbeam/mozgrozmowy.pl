@@ -1,6 +1,6 @@
 ---
 import ConversationOverviewPage from "../../components/pages/ConversationOverviewPage.astro";
-import { getTagExplanation, getTagExpansion } from "../../data/tags";
+import { getRelatedTags, getTagExplanation, getTagExpansion, getTagPath } from "../../data/tags";
 import { ui } from "../../i18n/ui";
 import { getTagStaticPaths } from "../../lib/content";
 
@@ -13,6 +13,10 @@ const labels = ui.pl.tagPage;
 const expansion = getTagExpansion("pl", tag);
 const explanation = getTagExplanation("pl", tag);
 const displayTag = expansion ? `${tag} (${expansion})` : tag;
+const relatedTags = getRelatedTags("pl", tag).map((relatedTag) => ({
+	label: relatedTag,
+	href: getTagPath("pl", relatedTag),
+}));
 const intro = explanation
 	? `${labels.introPrefix} „${tag}”. ${explanation}`
 	: `${labels.introPrefix} „${tag}”.`;
@@ -32,4 +36,6 @@ const description = explanation
 	intro={intro}
 	items={items}
 	variant="soft"
+	relatedTags={relatedTags}
+	relatedTagsLabel="Powiązany tag:"
 />

@@ -16,6 +16,8 @@ interface Props {
 	intro: string;
 	items: ConversationListItem[];
 	variant?: "soft" | "section";
+	relatedTags?: { label: string; href: string }[];
+	relatedTagsLabel?: string;
 }
 
 const {
@@ -29,6 +31,8 @@ const {
 	intro,
 	items,
 	variant = "section",
+	relatedTags = [],
+	relatedTagsLabel,
 } = Astro.props;
 ---
 
@@ -38,6 +42,18 @@ const {
 			<p class="page-kicker">{kicker}</p>
 			<h1>{heading}</h1>
 			<p>{intro}</p>
+			{
+				relatedTags.length > 0 && (
+					<p class="page-related-tags">
+						{relatedTagsLabel} {relatedTags.map((tag, index) => (
+							<>
+								{index > 0 ? ", " : ""}
+								<a href={tag.href}>{tag.label}</a>
+							</>
+						))}
+					</p>
+				)
+			}
 		</section>
 
 		<ConversationList items={items} lang={lang} />

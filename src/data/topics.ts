@@ -26,11 +26,11 @@ export const topicMap = {
 					"Tekst o autystycznym myśleniu, sieci znaczeń i tym, dlaczego świat często widzi tylko pomyłkę w słowie.",
 			},
 			{
-				title: "Mgła, mróz i kolor drzwi",
-				href: "/conversations/rozmowa-z-mozgiem-mgla-mroz-i-kolor-drzwi/",
+				title: "Wypadnie sesja. Mózgu, czemu masz alarm?",
+				href: "/conversations/wypadnie-sesja-mozgu-czemu-masz-alarm/",
 				kind: "rozmowa",
 				description:
-					"O pamięci, która nie przychodzi jako gotowa historia, tylko jako fragmenty, od których można zacząć bezpieczną mapę.",
+					"O tym, że alarm po wypadnięciu sesji nie musi oznaczać decyzji o rezygnacji, tylko utratę struktury, sensu i ciągłości procesu.",
 			},
 		],
 		groups: [
@@ -315,11 +315,11 @@ export const topicMap = {
 					"A text about autistic meaning-making and why the world often sees only a wrong word.",
 			},
 			{
-				title: "Fog, Frost, and the Color of the Door",
-				href: "/en/conversations/fog-frost-and-the-colour-of-the-door/",
+				title: "A session gets cancelled. Brain, why are you sounding the alarm?",
+				href: "/en/conversations/cancelled-session-brain-why-alarm/",
 				kind: "conversation",
 				description:
-					"About memory that does not arrive as a complete story, but as fragments from which a safe map can begin.",
+					"On how the alarm after a cancelled session does not always mean a decision to quit, but a loss of structure, purpose, and continuity in the process.",
 			},
 		],
 		groups: [
