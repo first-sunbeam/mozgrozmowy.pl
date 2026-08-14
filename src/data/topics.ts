@@ -38,6 +38,13 @@ export const topicMap = {
 				title: "Terapia, psychoterapia i dopasowanie",
 				items: [
 					{
+						title: "Wypadnie sesja. Mózgu, czemu masz alarm?",
+						href: "/conversations/wypadnie-sesja-mozgu-czemu-masz-alarm/",
+						kind: "rozmowa",
+						description:
+							"O tym, że alarm po wypadnięciu sesji nie musi oznaczać decyzji o rezygnacji, tylko utratę struktury, sensu i ciągłości procesu.",
+					},
+					{
 						title: "Jeśli tak wygląda dorosłość, to jak ma wyglądać terapia?",
 						href: "/conversations/jesli-tak-wyglada-doroslosc-to-jak-ma-wygladac-terapia/",
 						kind: "rozmowa",
@@ -319,6 +326,13 @@ export const topicMap = {
 			{
 				title: "Therapy, psychotherapy, and fit",
 				items: [
+					{
+						title: "A session gets missed. Brain, why are you sounding the alarm?",
+						href: "/en/conversations/cancelled-session-brain-why-alarm/",
+						kind: "conversation",
+						description:
+							"On how the alarm after a cancelled session does not always mean a decision to quit, but a loss of structure, purpose, and continuity in the process.",
+					},
 					{
 						title:
 							"If this is what adulthood looks like, what should therapy look like?",
