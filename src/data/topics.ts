@@ -4,8 +4,8 @@ export const topicMap = {
 		featured: [
 			{
 				title: "Rozmowa z Mózgiem: pani Podręcznik kontra układ kartezjański",
-				href: "/reflections/neurodivergent-therapy-journey/",
-				kind: "refleksja",
+				href: "/conversations/neurodivergent-therapy-journey/",
+				kind: "rozmowa",
 				description:
 					"O różnicy między podręcznikową terapią emocji a realnym wsparciem afirmującym osoby neuroatypowe.",
 			},
@@ -69,8 +69,8 @@ export const topicMap = {
 					{
 						title:
 							"Rozmowa z Mózgiem: pani Podręcznik kontra układ kartezjański",
-						href: "/reflections/neurodivergent-therapy-journey/",
-						kind: "refleksja",
+						href: "/conversations/neurodivergent-therapy-journey/",
+						kind: "rozmowa",
 						description:
 							"Dlaczego klasyczne nazywanie emocji nie zawsze prowadzi do regulacji, a czasem tylko do większego zmęczenia.",
 					},
@@ -253,8 +253,8 @@ export const topicMap = {
 					},
 					{
 						title: "ABA? Usiądź, wyjaśnię. Także po polsku.",
-						href: "/conversations/aba-usiedz-wyjasnie-takze-po-polsku/",
-						kind: "rozmowa",
+						href: "/reflections/aba-usiedz-wyjasnie-takze-po-polsku/",
+						kind: "refleksja",
 						description:
 							"O historii ABA, współczesnych standardach i pytaniu, kiedy narzędzie staje się przemocą.",
 					},
@@ -301,8 +301,8 @@ export const topicMap = {
 		featured: [
 			{
 				title: "Manual Lady vs. Cartesian System",
-				href: "/en/reflections/neurodivergent-therapy-journey/",
-				kind: "reflection",
+				href: "/en/conversations/neurodivergent-therapy-journey/",
+				kind: "conversation",
 				description:
 					"On the difference between textbook emotion work and real support affirming neurodivergent people.",
 			},
@@ -365,8 +365,8 @@ export const topicMap = {
 					{
 						title:
 							"Conversation with My Brain: Manual Lady vs. Cartesian System",
-						href: "/en/reflections/neurodivergent-therapy-journey/",
-						kind: "reflection",
+						href: "/en/conversations/neurodivergent-therapy-journey/",
+						kind: "conversation",
 						description:
 							"Why classic emotion labeling does not always lead to regulation, and may instead produce more exhaustion.",
 					},
@@ -546,8 +546,8 @@ export const topicMap = {
 					},
 					{
 						title: "ABA? Sit Down, I'll Explain. Also in Polish.",
-						href: "/en/conversations/aba-sit-down-ill-explain-also-in-polish/",
-						kind: "conversation",
+						href: "/en/reflections/aba-sit-down-ill-explain-also-in-polish/",
+						kind: "reflection",
 						description:
 							"On ABA's history, current standards, and the ethical question of when support becomes coercion.",
 					},
