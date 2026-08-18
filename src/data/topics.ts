@@ -128,6 +128,13 @@ export const topicMap = {
 				title: "Przeciążenie, shutdown i koszt funkcjonowania",
 				items: [
 					{
+						title: "Rozmowa z Mózgiem: „Lubi pani się źle czuć”",
+						href: "/conversations/rozmowa-z-mozgiem-lubi-pani-sie-zle-czuc/",
+						kind: "rozmowa",
+						description:
+							"O tym, jak „dam radę” może stać się miarą tego, czy problem w ogóle istnieje — podczas gdy koszt znika z obliczeń.",
+					},
+					{
 						title:
 							"Autystyczne znaki STOP: burnout → inertia → meltdown → shutdown",
 						href: "/reflections/autistic-stop-signals/",
@@ -357,7 +364,7 @@ export const topicMap = {
 					},
 					{
 						title:
-							"Conversation with the Brain: Manual Lady vs. Cartesian System",
+							"Conversation with My Brain: Manual Lady vs. Cartesian System",
 						href: "/en/reflections/neurodivergent-therapy-journey/",
 						kind: "reflection",
 						description:
@@ -415,6 +422,13 @@ export const topicMap = {
 			{
 				title: "Overload, shutdown, and the cost of functioning",
 				items: [
+					{
+						title: "Conversation with My Brain: “You Like Feeling Bad”",
+						href: "/en/conversations/conversation-with-brain-do-you-like-feeling-bad/",
+						kind: "conversation",
+						description:
+							"When “I can do it” becomes the measure of whether something is a problem — and the cost of doing it disappears from the calculation.",
+					},
 					{
 						title:
 							"Autistic STOP signals: burnout → inertia → meltdown → shutdown",

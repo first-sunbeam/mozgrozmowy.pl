@@ -5,8 +5,11 @@ interface Props {
 }
 
 const { speaker, text } = Astro.props;
+const normalizedSpeaker = speaker.toLowerCase();
 const isBrain =
-	speaker.toLowerCase() === "mozg" || speaker.toLowerCase() === "brain";
+	normalizedSpeaker === "mozg" ||
+	normalizedSpeaker === "mózg" ||
+	normalizedSpeaker === "brain";
 const hasContentSlot = Astro.slots.has("default");
 ---
 
