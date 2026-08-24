@@ -9,7 +9,7 @@ export const ui = {
 			kicker: "Najnowsze rozmowy",
 			heading: "Rozmowy z Mózgiem",
 			intro:
-				"Refleksje o autyzmie, przeciążeniu i próbach zrozumienia, jak działa neuroatypowy mózg — w terapii, relacjach i codziennym życiu.",
+				"O autyzmie, przeciążeniu i próbach zrozumienia, jak działa neuroatypowy mózg — w terapii, relacjach i codziennym życiu.",
 		},
 		conversations: {
 			title: "Wszystkie rozmowy | mozgrozmowy.pl",
@@ -93,7 +93,7 @@ export const ui = {
 			kicker: "Latest conversations",
 			heading: "Conversations with the Brain",
 			intro:
-				"Reflections on autism, overload, and trying to understand how a neurodivergent brain works — in therapy, relationships, and everyday life.",
+				"Exploring autism, overload, and how a neurodivergent brain works — in therapy, relationships, and everyday life.",
 		},
 		conversations: {
 			title: "All conversations | mozgrozmowy.pl",
