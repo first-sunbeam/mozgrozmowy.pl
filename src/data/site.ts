@@ -2,7 +2,7 @@ export const siteConfig = {
 	siteName: "Rozmowy z Mózgiem",
 	siteUrl: "https://mozgrozmowy.pl",
 	defaultTitle: "mozgrozmowy.pl",
-	defaultDescription: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia.",
+	defaultDescription: "Refleksje o autyzmie, przeciążeniu i próbach zrozumienia, jak działa neuroatypowy mózg — w terapii, relacjach i codziennym życiu.",
 	defaultOgImagePath: "/og-default.png",
 	author: {
 		name: "Małgorzata Mikołajczyk",

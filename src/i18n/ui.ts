@@ -3,14 +3,13 @@ export type Lang = "pl" | "en";
 export const ui = {
 	pl: {
 		home: {
-			title: "Rozmowy o terapii, przeciążeniu i wsparciu | mozgrozmowy.pl",
-			description: "Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia. Teksty o neuroatypowości, regulacji i codziennym funkcjonowaniu.",
+			title: "Refleksje o autyzmie, przeciążeniu i neuroatypowym mózgu | mozgrozmowy.pl",
+			description: "Refleksje o autyzmie, przeciążeniu i próbach zrozumienia, jak działa neuroatypowy mózg — w terapii, relacjach i codziennym życiu.",
 			pathname: "/",
 			kicker: "Najnowsze rozmowy",
-			heading:
-				"Spokojne, czytelne rozmowy o terapii, przeciążeniu i systemach wsparcia.",
+			heading: "Rozmowy z Mózgiem",
 			intro:
-				"Strona główna pokazuje najnowsze teksty z serii. Układ pozostaje prosty: czytelne tytuły, krótkie opisy i miejsce na samą treść.",
+				"Refleksje o autyzmie, przeciążeniu i próbach zrozumienia, jak działa neuroatypowy mózg — w terapii, relacjach i codziennym życiu.",
 		},
 		conversations: {
 			title: "Wszystkie rozmowy | mozgrozmowy.pl",
@@ -53,15 +52,15 @@ export const ui = {
 			kicker: "O mnie",
 			heading: "Kontekst",
 			intro:
-				"Ta strona daje kontekst: kto stoi za rozmowami i jak ten projekt podchodzi do analizy, terapii, przeciążenia i doświadczenia.",
+				"Kto stoi za rozmowami i dlaczego właśnie tak patrzę na terapię, przeciążenie i neuroatypowe funkcjonowanie.",
 			paragraphs: [
-				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroatypowości, tylko budowania spokojnego, precyzyjnego języka dla terapii, systemów wsparcia, przeciążenia i codziennego funkcjonowania.",
+				"Pracuję na styku doświadczenia i analizy. Ten projekt nie jest próbą tworzenia szumu wokół neuroatypowości, tylko budowania spokojnego, precyzyjnego języka do rozmowy o autyzmie, terapii, przeciążeniu i codziennym funkcjonowaniu.",
 				"Treści publikowane na tej stronie i w moich mediach społecznościowych mają charakter psychoedukacyjny, refleksyjny i informacyjny. Nie są terapią, diagnozą ani indywidualną poradą psychologiczną. Mogą pomagać nazwać doświadczenie albo zobaczyć mechanizm, ale nie zastępują kontaktu ze specjalistą, zwłaszcza w sytuacji kryzysu lub potrzeby indywidualnej pomocy.",
 				"Forma jest celowo prosta. Bez archiwów, bez nadmiaru metadanych, bez zbędnego interfejsu. Jedna czytelna droga do treści.",
 				"Aktualny status projektu: publiczna wersja alpha. Strona jest gotowa do oglądania i czytania, ale będzie dalej rozwijana redakcyjnie i technicznie.",
 			],
 			professionalLinkLead:
-				"Ta strona jest projektem autorskim. Jeśli szukasz informacji o mojej pracy zawodowej i konsultacjach, znajdziesz je na stronie:",
+				"Ta strona jest projektem autorskim. Jeśli szukasz informacji o mojej pracy zawodowej lub konsultacjach, znajdziesz je na stronie:",
 			professionalLinkLabel: "autyzm.poznan.pl",
 			contactLead: "Jeśli chcesz się odezwać —",
 			contactLinkLabel: "napisz",
@@ -88,14 +87,13 @@ export const ui = {
 	},
 	en: {
 		home: {
-			title: "Conversations about therapy, overload, and support | mozgrozmowy.pl",
-			description: "Calm, readable conversations about therapy, overload, and systems of support. Writing on neurodivergence, regulation, and everyday functioning.",
+			title: "Reflections on autism, overload, and the neurodivergent brain | mozgrozmowy.pl",
+			description: "Writing about how a neurodivergent brain works — across therapy, relationships, overload, and everyday life.",
 			pathname: "/en/",
 			kicker: "Latest conversations",
-			heading:
-				"Calm, readable conversations about therapy, overload, and systems of support.",
+			heading: "Conversations with the Brain",
 			intro:
-				"This homepage shows the latest entries from the series. The structure stays simple: clear titles, short descriptions, and space for the writing itself.",
+				"Reflections on autism, overload, and trying to understand how a neurodivergent brain works — in therapy, relationships, and everyday life.",
 		},
 		conversations: {
 			title: "All conversations | mozgrozmowy.pl",
@@ -138,18 +136,18 @@ export const ui = {
 			kicker: "About",
 			heading: "Context",
 			intro:
-				"This page gives context: who is behind the conversations and how this project approaches analysis, therapy, overload, and lived experience.",
+				"Who is behind the conversations and why I look at therapy, overload, and neurodivergent functioning this way.",
 			paragraphs: [
-				"I work at the intersection of lived experience and analysis. This project is not about creating noise around neurodivergence, but about building a calm, precise language for therapy, support systems, overload, and everyday functioning.",
+				"I work at the intersection of lived experience and analysis. This project is not about creating noise around neurodivergence, but about building a calm, precise language for talking about autism, therapy, overload, and everyday functioning.",
 				"The writing published on this site and in my social media is psychoeducational, reflective, and informational. It is not therapy, diagnosis, or individual psychological advice. It may help name an experience or notice a mechanism, but it does not replace contact with a professional, especially in crisis or when individual support is needed.",
 				"The structure is intentionally simple. No archives, no metadata clutter, no unnecessary interface. Just a clear way into the ideas.",
 				"Current project status: public alpha. The site is ready to be viewed and read, but it will continue to evolve both editorially and technically.",
 			],
 			professionalLinkLead:
-				"This site is an authorial project. If you are looking for information about my professional work and consultations, you can find it at:",
+				"This site is an authorial project. If you are looking for information about my professional work or consultations, you can find it at:",
 			professionalLinkLabel: "autyzm.poznan.pl",
 			contactLead: "If you want to reach out —",
-			contactLinkLabel: "write to me", 
+			contactLinkLabel: "write to me",
 		},
 		article: {
 			kicker: "Conversation",
