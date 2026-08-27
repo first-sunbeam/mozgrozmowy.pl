@@ -38,6 +38,13 @@ export const topicMap = {
 				title: "Terapia, psychoterapia i dopasowanie",
 				items: [
 					{
+						title: "Nie zachęcaj go",
+						href: "/conversations/rozmowa-z-mozgiem-nie-zachecaj-go/",
+						kind: "rozmowa",
+						description:
+							"O pytaniach sokratejskich i o tym, że narzędzie do kwestionowania myśli może stać się paliwem dla mózgu, który już kwestionuje wszystko zbyt wiele razy.",
+					},
+					{
 						title: "Wypadnie sesja. Mózgu, czemu masz alarm?",
 						href: "/conversations/wypadnie-sesja-mozgu-czemu-masz-alarm/",
 						kind: "rozmowa",
@@ -333,6 +340,13 @@ export const topicMap = {
 			{
 				title: "Therapy, psychotherapy, and fit",
 				items: [
+					{
+						title: "Don't Encourage It",
+						href: "/en/conversations/dont-encourage-it/",
+						kind: "conversation",
+						description:
+							"On Socratic questions, and how a tool for questioning thoughts can become fuel for a brain that already questions everything too many times.",
+					},
 					{
 						title: "A session gets missed. Brain, why are you sounding the alarm?",
 						href: "/en/conversations/cancelled-session-brain-why-alarm/",
